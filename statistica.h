@@ -117,7 +117,7 @@ double dstd(vector<double> dati, int inizio = 0, int fine = 0, string log = "")
 }
 
 //Funzione deviazione standard della media
-double dstd_media(vector<double> dati, int inizio, int fine, string log = "")
+double dstd_media(vector<double> dati, int inizio = 0, int fine = 0, string log = "")
 {
     double dstd_media_;
     if (fine != 0) //specifico la fine, dunque solo su parte del vettore
