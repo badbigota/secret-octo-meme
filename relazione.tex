@@ -1,0 +1,89 @@
+% Franceschetto Giacomo
+% !TeX encoding = utf8
+% !TeX program = pdflatex
+% !TeXpellcheck = it_IT
+
+\documentclass[a4paper,11pt,oneside]{article} 
+
+\usepackage{relazioni}
+
+\def\titolo{Esperienza guidovia}
+\def\dataconsegna{20 Gennaio 2020}
+
+\graphicspath{{Figure/}}
+
+\begin{document}
+\input{Front-matter/Frontespizio}
+\section{Obiettivo}
+La verifica sperimentale del moto uniformemente accelerato di una slitta su un piano inclinato, in assenza di attrito radente, è volta alla valutazione dell'accelerazione  di gravità a Padova.\\
+La conseguente stima dell'attrito viscoso che l' aria imprime all'oggetto preso in considerazione e l'apporto di altre considerazioni teoriche e sperimentali comporta la correzione della stima dell’accelerazione di gravità precedentemente considerata.
+
+\section{Introduzione teorica}
+hdh
+\section{Apparato sperimentale}\label{section:apparato}
+Per lo svolgimento dell'esperienza si è fatto uso di:
+\begin{enumerate}
+    \item Una slitta in plexiglas rettangolare con delle sporgenze sulla parte inferiore al fine di agevolarne lo scorrimento sul piano inclinato. La slitta è eventualmente equipaggiabile con dischi di ottone per aumentarne la massa.
+    \item Una guida in alluminio a sezione rettangolare e a inclinazione variabile (tramite una vite) sulla quale far scorrere la slitta. La guida è inoltre forata strategicamente su tutta la sua lunghezza per permettere l'uscita dell'aria erogata da un soffiatore a pressione regolabile. Ciò premette la conseguente formazione di un cuscino d'aria sotto la slitta durante la sua corsa al fine di eliminare il contributo dell'attrito radente.
+    \item Un cronometro digitale avente sensibilità di (10 alla meno 4 secondi)
+    \item Traguardi a sensori a infrarossi posizionati parallelamente alla guida per delimitare una qualsiasi porzione di spazio sulla stessa e  utilizzati per azionare e fermare il cronometro al passaggio della slitta. In particolare il primo permetteva l'inizio del conteggio, fermato poi dal passaggio della slitta al secondo.
+    \item Elettrocalamita posta all'inizio della guida, utilizzata nella prima parte dell'esperienza per bloccare la slitta per poi rilasciarla, nella seconda parte  per imprimere una forza  alla slitta stessa. L'elettrocalamita è azionabile manualmente da un operatore.
+    \item Spessori di alluminio utilizzati per ridurre la spinta impressa dall'elettrocalamita
+\end{enumerate}
+    
+
+
+\section{Metodo}
+\subsection{Orizzontalità della guida}
+La fase preliminare dell'esperienza prevede di determinare l'orizzontalità della guida tramite misurazioni dirette. La procedura impiegata consiste nel verificare se la slitta rimane stabile in 3 punti differenti, a 40cm, 80cm e 110cm dall'origine della guida.\\
+In primo luogo si è proceduto con l'accensione del soffiatore, impostato per tutta l'esperienza alla stessa potenza, per poi posizionare la slitta nel primo punto, a 40cm. Si è poi regolata la vite affinché la slitta rimanesse stabile al fine di poter fissare un sistema di riferimento con il quale testare l'orizzontalità sugli altri due punti. Lasciando invariato il sistema di riferimento sono stati presi i valori sulla vite per i quali, nel secondo  e nel terzo punto, la slitta rimane stabile.\\
+Ipotizzando l'imprecisione delle misure precedentemente effettuate si è ripetuto il procedimento e si è verificato che per il secondo e per il terzo punto il risultato rimaneva invariato, invece per il primo punto si è misurato un nuovo valore. Data l'ipotesi, si è calcolata la media e la deviazione standard su queste ultime 3 misure effettuate.\\
+La seguente tabella riporta i dati ottenuti:
+
+\begin{table}[h]
+    \centering
+        \caption{Valori per l'orizzontalità della guida}
+
+\begin{tabular}{ccc|cc}
+
+    \toprule
+    $\alpha_{0}$&$\alpha_{2}$&$\alpha_{3}$&$\overline{\alpha}$&$\sigma_{\overline{\alpha}}$\\
+    \midrule
+0,15&0,15&0,4&0,23&0,1443375672 \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:guida_orizzontale}
+\end{table}
+Dati i valori ottenuti, si è assunto come zero del nuovo sistema di riferimento, considerando anche la relativa deviazione standard, la media delle misure $\overline{\alpha} \pm \sigma_{\overline{\alpha}}$, settando la ghiera.\\
+
+
+
+
+\subsection{Presa dati prima esperienza}
+Avendo settato il sistema di riferimento si è impostata la guida ad un' inclinazione di $15'$ ruotando 3 volte la vite, in quanto ciascun giro corrispondeva ad una variazione  di $5'$.\\
+
+In seguito si sono posizionati i traguardi, inizialmente a 40cm e 50cm e, successivamente, lasciando invariata la posizione del primo, si è spostato il secondo di 10cm fino ad arrivare a 110cm. \\
+Per ciascun intervallo di spazio si sono prese 5 misure ripetute di intervalli di tempo, ognuna delle quali rappresentava il tempo impiegato dalla slitta per percorrere il relativo spazio. Sono stati letti i dati dal cronometro automatico, in seguito riportati in file di testo.\\
+Si è ripetuta la medesima operazione di presa dati variando l'inclinazione della slitta a 30' e successivamente a 45'.
+Infine, operando sempre sulla slitta inclinata di 45', si è caricata la slitta con un disco di ottone al fine di incrementarne la massa. Si sono riportati i dati ottenuti in un altro file di testo.
+
+\subsection{Presa dati seconda esperienza}
+Si è portata nuovamente la guida all'orizzontalità e si è scaricata la slitta. \\
+Per quanto riguarda l'elettrocalamita invece, è stata utilizzata in maniera differente rispetto alla prima esperienza, infatti quest'ultima ha impresso un impulso alla slitta che ha permesso alla stessa di procedere lungo tutta la guida, rallentata solamente dall'attrito viscoso dell'aria.\\
+I traguardi sono stati posizionati rispettivamente a 40cm e 60cm, per poi modificarne la distanza dall'origine aumentandola di 10 cm per volta arrivando fin o all'intervallo 90-110cm.
+Per ogni intervallo di spazio sono state prese 5 misurazioni temporali leggendo i dati dal cronometro digitale e riportandole su un file di testo.\\
+Si è poi ripetuto il procedimento e la conseguente presa dati una volta con la slitta carica e una seconda volta con la slitta scarica, ma utilizzando uno spessore di alluminio interposto tra la slitta e l'elettrocalamita.
+
+
+
+\section{Raccolta dati}
+\section{Analisi dati}
+\section{Discussione dei risultati}
+\section{Conclusione}
+\section{Appendice}
+\newpage
+
+
+
+
+\end{document}
