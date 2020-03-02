@@ -65,22 +65,21 @@ int main()
         {
             tempo = tempi[i].media_tempo;
             dstd_tempo = tempi[i].dstd_tempo_media;
-            intervalli[i].media_tempo = tempi[i].media_tempo;     //solo nel primo intervallo perchè non è definito il precedente
-            intervalli[i].dstd_tempo = tempi[i].dstd_tempo_media; //vale solo per il primo, negli alti casi si propaga
-                                                                  //serve usare dstd_tempo_media dev std su media
-            intervalli[i].tempo_intermedio = tempi[i].media_tempo / 2;
-            //intervalli[i].dstd_vel = sqrt(pow((1 / tempo), 2) * pow(dstd_spazio, 2) + pow((spazio / pow(dstd_tempo, 2)), 2) * pow(dstd_tempo, 2)); // solo per il primo
-            intervalli[i].dstd_vel = sqrt(pow((dstd_tempo / tempo), 2) + pow(((dstd_spazio * spazio) / (pow(tempo, 2))), 2));
+            intervalli[i].media_tempo = tempo;          //solo nel primo intervallo perchè non è definito il precedente
+            intervalli[i].tempo_intermedio = tempo / 2; // // solo per il primo
+            intervalli[i].dstd_tempo = dstd_tempo;      //vale solo per il primo, negli alti casi si propaga
+                                                        //serve usare dstd_tempo_media dev std su media
+            intervalli[i].dstd_vel = sqrt(2*pow((dstd_spazio / tempo), 2) + pow(((spazio * dstd_tempo) / pow(tempo, 2)), 2));
         }
         else
         {
             double tempo = tempi[i].media_tempo - tempi[i - 1].media_tempo; //comodo al posto che chiamare tutta la struttura
             double dstd_tempo_1 = tempi[i - 1].dstd_tempo_media;
             double dstd_tempo_2 = tempi[i].dstd_tempo_media;
-            intervalli[i].media_tempo = tempi[i].media_tempo - tempi[i - 1].media_tempo;                                                                                                                      //si usa la differenza con l'intervallo successivo
-            intervalli[i].dstd_tempo = sqrt(pow(tempi[i].dstd_tempo_media, 2) + pow(tempi[i - 1].dstd_tempo_media, 2));                                                                                       //da propagazione errori casuali dev std della media dai tempi                                          //propagare differenza fra tempi dstd tempi media
-            intervalli[i].tempo_intermedio = (tempi[i].media_tempo + tempi[i - i].media_tempo) / 2;                                                                                                           //formuletta della sada
-            intervalli[i].dstd_vel = sqrt(2 * pow((1 / tempo), 2) * pow(dstd_spazio, 2) + pow((spazio / pow(tempo, 2)), 2) * pow(dstd_tempo_1, 2) + pow((spazio / pow(tempo, 2)), 2) * pow(dstd_tempo_2, 2)); //usare di nuovo la propagazione con distrib triangolare su spazio e incertezza su tempi trovata prima
+            intervalli[i].media_tempo = tempo;                                                                                                           //si usa la differenza con l'intervallo successivo
+            intervalli[i].dstd_tempo = sqrt(pow(dstd_tempo_1, 2) + pow(dstd_tempo_2, 2));                                                                //da propagazione errori casuali dev std della media dai tempi                                          //propagare differenza fra tempi dstd tempi media
+            intervalli[i].tempo_intermedio = (tempi[i].media_tempo + tempi[i - 1].media_tempo) / 2;                                                      //formuletta della sada
+            intervalli[i].dstd_vel = sqrt(2 * pow((dstd_spazio / tempo), 2) + pow((spazio / pow(tempo,2)), 2) * (pow(dstd_tempo_1, 2) + pow(dstd_tempo_2, 2))); //usare di nuovo la propagazione con distrib triangolare su spazio e incertezza su tempi trovata prima
         }
         intervalli[i].media_vel = spazio / intervalli[i].media_tempo; //va bene in qls caso, senza distinzione fra prima o ultima misura
     }
@@ -88,7 +87,7 @@ int main()
     // per testare su excel e printare i dati
     for (auto d : intervalli)
     {
-        cout << d.tempo_intermedio << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
+        cout << d.posizione_inizio << d.posizione_fine << "\t" << d.tempo_intermedio << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
     }
 
     return 0;
