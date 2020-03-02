@@ -1,0 +1,115 @@
+% Franceschetto Giacomo
+% !TEX encoding = utf8
+% !TEX spellcheck = it_IT 
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{relazioni}
+
+%******************************************************************
+% Languages & Encoding
+%******************************************************************
+
+\usepackage[T1]{fontenc}	
+\usepackage[utf8]{inputenc}	
+\usepackage[italian]{babel}	
+
+%******************************************************************
+% Math & Coding
+%******************************************************************
+
+\usepackage{amsmath,amssymb,amsthm}	
+\usepackage{siunitx}
+\usepackage{listings}
+
+%******************************************************************
+% Tables & Figures & Graphs
+%******************************************************************
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{wrapfig}
+
+\newcolumntype{L}{>{$}l<{$}}
+\newcolumntype{C}{>{$}c<{$}}
+\newcolumntype{R}{>{$}r<{$}}
+
+%\usepackage{pgfplots}
+
+%******************************************************************
+% Layout & Pagestyle
+%******************************************************************
+
+\usepackage[nochapters,eulermath]{classicthesis}
+\usepackage{arsclassica}
+\usepackage{indentfirst}
+\usepackage{shapepar}
+\usepackage{geometry}
+
+\geometry{
+	width=35pc,				% Larghezza del testo
+	height=46\baselineskip,	% Altezza del testo
+	vmarginratio=1000:1414,	% Rapporto tra margine superiore e inferiore 
+	marginparwidth=7em,		% Larghezza delle note a margine
+	headheight=16pt,		% Altezza dell'intestazione
+	headsep=18pt,			% Spazio tra intestazione e corpo del testo
+	footskip=42pt			% Spazio tra corpo del testo e piè pagina
+}
+
+%******************************************************************
+% Miscellaneous Packages
+%******************************************************************
+
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}	
+\usepackage{pdfpages}
+\usepackage{gensymb}
+
+
+%******************************************************************
+% Miscellaneous Settings
+%******************************************************************
+
+% Colours
+\definecolor{Pantone1807}{HTML}{9B0014}
+\definecolor{RoyalBlue}{HTML}{3D428B}
+%CodeLanguages
+%\lstset { 
+%	language=C++,
+%	backgroundcolor=\color{black!5}, 
+%	basicstyle=\footnotesize,
+%}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+
+
+\endinput
+
+
