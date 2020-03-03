@@ -21,7 +21,8 @@ struct contenitore_statistico
 
 int main()
 {
-    string angolo = "../Dati/PrimaParte/d45_"; //modifica se vuoi cambiare l inclinazione da leggere
+    string angolo = "../Dati/PrimaParte/";
+    string prefix = "d45_"; //modifica se vuoi cambiare l inclinazione da leggere
     string extension = ".txt";
     const int numero_intervalli = 7;                              //quanti intervalli di spazio ci sono per ogni angolazione
     vector<contenitore_statistico> tempi(numero_intervalli);      //storage di tutte le info dei tempi dai file a stessa angolazione
@@ -31,7 +32,7 @@ int main()
 
     for (int i = 0; i < numero_intervalli; i++)
     {
-        ifstream fin(angolo + to_string(50 + 10 * i) + extension); //soluzione per leggere in automatico tutti i file con stessa angolazione
+        ifstream fin(angolo + prefix + to_string(50 + 10 * i) + extension); //soluzione per leggere in automatico tutti i file con stessa angolazione
         if (!fin)
         {
             cout << "Errore lettura " << angolo + to_string(50 + 10 * i) + extension << endl;
@@ -84,12 +85,43 @@ int main()
         intervalli[i].media_vel = spazio / intervalli[i].media_tempo; //va bene in qls caso, senza distinzione fra prima o ultima misura
     }
 
+    ofstream ftempi("../Stat/PerLatex/tempi_" + prefix + ".txt");
+    if (!ftempi)
+    {
+        cout << "Errore scrittura tempi";
+        return 1;
+    }
+    ofstream fspeed("../Stat/PerLatex/stat" + prefix + "_con_colonna_inizio_e_fine_.txt");
+    if (!fspeed)
+    {
+        cout << "Errore scrittura velocità";
+        return 1;
+    }
+
+    ofstream fchi("../Stat/PerLatex/chiquadro_" + prefix + ".txt");
+    if (!fchi)
+    {
+        cout << "Errore scrittura chiquadro";
+        return 1;
+    }
+
+    cout << "----------- TEMPI -----------" << endl;
+    //scrivere tempi
+    for (auto a : tempi)
+    {
+        cout << a.posizione_inizio << "\t" << a.posizione_fine << "\t" << a.media_tempo << "\t" << a.dstd_tempo << "\t" << a.dstd_tempo_media << endl;
+        ftempi << a.posizione_inizio << "\t" << a.posizione_fine << "\t" << a.media_tempo << "\t" << a.dstd_tempo << "\t" << a.dstd_tempo_media << endl;
+    }
+
+    cout << "----------- VELOCITÀ -----------" << endl;
     // per testare su excel e printare i dati
     for (auto d : intervalli)
     {
-        cout << d.tempo_intermedio << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
+        cout << d.posizione_inizio << "\t" << d.posizione_fine << "\t" << d.tempo_intermedio << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
+        fspeed << d.posizione_inizio << "\t" << d.posizione_fine << "\t" << d.tempo_intermedio << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
     }
 
+    cout << "----------- CHI -----------" << endl;
     vector<double> time;
     vector<double> speed;
     for (auto d : intervalli)
@@ -101,14 +133,8 @@ int main()
     cout << "A_intercetta: " << a_intercetta(time, speed) << "\t SIGMA_a:" << sigma_a(time, speed) << endl;
     cout << "B_angolare: " << b_angolare(time, speed) << "\t SIGMA_b:" << sigma_b(time, speed) << endl;
 
-    ofstream fout("../Stat/chiquadro_45p.txt");
-    if (!fout)
-    {
-        cout << "Errore scrittura";
-        return 1;
-    }
-    fout << "A_intercetta: " << a_intercetta(time, speed) << "\t SIGMA_a:" << sigma_a(time, speed) << endl;
-    fout << "B_angolare: " << b_angolare(time, speed) << "\t SIGMA_b:" << sigma_b(time, speed) << endl;
+    fchi << "A_intercetta: " << a_intercetta(time, speed) << "\t SIGMA_a:" << sigma_a(time, speed) << endl;
+    fchi << "B_angolare: " << b_angolare(time, speed) << "\t SIGMA_b:" << sigma_b(time, speed) << endl;
 
     return 0;
 }
