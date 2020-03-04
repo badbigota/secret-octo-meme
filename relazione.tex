@@ -38,8 +38,12 @@
 \newpage
 
 \section{Obiettivo}
+%Si può dire meglio e in modo più conciso e chiaro
 La verifica sperimentale del moto uniformemente accelerato di una slitta su un piano inclinato, in assenza di attrito radente, è volta alla stima dell'accelerazione  di gravità a Padova.\\
-La conseguente stima dell'attrito viscoso che l' aria imprime all'oggetto preso in considerazione e l'apporto di altre considerazioni teoriche e sperimentali comporta la correzione della stima dell’accelerazione di gravità precedentemente considerata.
+
+
+
+%La conseguente stima dell'attrito viscoso che l' aria imprime all'oggetto preso in considerazione e l'apporto di altre considerazioni teoriche e sperimentali comporta la correzione della stima dell’accelerazione di gravità precedentemente considerata.
 
 
 
@@ -48,31 +52,36 @@ La conseguente stima dell'attrito viscoso che l' aria imprime all'oggetto preso 
 
 
 \section{Apparato sperimentale}\label{section:apparato}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 10cm]{DiagrammaApparato.jpg}
+    \caption{Diagramma composizione apparato}
+    \label{fig:apparato_sperimentale}
+\end{figure}
+
 Per lo svolgimento dell'esperienza si è fatto uso di:
 \begin{enumerate}
     \item Una slitta in plexiglas rettangolare con delle sporgenze sulla parte inferiore al fine di agevolarne lo scorrimento sul piano inclinato. La slitta è eventualmente equipaggiabile con dischi di ottone per aumentarne la massa.
     \item Una guida in alluminio a sezione rettangolare e a inclinazione variabile (tramite una vite) sulla quale far scorrere la slitta. La guida è inoltre forata strategicamente su tutta la sua lunghezza per permettere l'uscita dell'aria erogata da un soffiatore a pressione regolabile. Ciò premette la conseguente formazione di un cuscino d'aria sotto la slitta durante la sua corsa al fine di eliminare il contributo dell'attrito radente.
-    \item Un cronometro digitale avente sensibilità di $10^{4} s^{-1}$
-    \item Traguardi a sensori a infrarossi posizionati parallelamente alla guida per delimitare una qualsiasi porzione di spazio sulla stessa e  utilizzati per azionare e fermare il cronometro al passaggio della slitta. In particolare il primo permetteva l'inizio del conteggio, fermato poi dal passaggio della slitta al secondo.
+    \item Un cronometro digitale avente sensibilità di \num{1e4}\si{s^-1}
+    \item Traguardi a sensori a infrarossi posizionati perpendicolarmente alla guida per delimitare una qualsiasi porzione di spazio sulla stessa e utilizzati per azionare e fermare il cronometro al passaggio della slitta. In particolare il primo permetteva l'inizio del conteggio, fermato poi dal passaggio della slitta al secondo.
     \item Elettrocalamita posta all'inizio della guida, utilizzata nella prima parte dell'esperienza per bloccare la slitta per poi rilasciarla, nella seconda parte  per imprimere una forza  alla slitta stessa. L'elettrocalamita è azionabile manualmente da un operatore.
-    \item Spessori di alluminio utilizzati per ridurre la spinta impressa dall'elettrocalamita
+    \item Spessori di alluminio utilizzati per ridurre la spinta impressa dall'elettrocalamita, interponibili tra quest'ultima e la slitta.
 \end{enumerate}
     
-
 
 \section{Metodo}
 \subsection{Orizzontalità della guida}
 La fase preliminare dell'esperienza prevede di determinare l'orizzontalità della guida tramite misurazioni dirette. La procedura impiegata consiste nel verificare se la slitta rimane stabile in 3 punti differenti, a 40 cm, 80 cm e 110 cm dall'origine della guida.\\
-In primo luogo si è proceduto con l'accensione del soffiatore, impostato per tutta l'esperienza alla stessa potenza, per poi posizionare la slitta nel primo punto, a 40cm. Si è poi regolata la vite affinché la slitta rimanesse stabile al fine di poter fissare un sistema di riferimento con il quale testare l'orizzontalità sugli altri due punti. Lasciando invariato il sistema di riferimento sono stati presi i valori sulla vite per i quali, nel secondo  e nel terzo punto, la slitta rimane stabile.\\
+In primo luogo si è proceduto con l'accensione del soffiatore, impostato per tutta l'esperienza alla stessa potenza, per poi posizionare la slitta nel primo punto, a 40cm. Si è poi regolata la vite affinché la slitta rimanesse stabile al fine di poter fissare un sistema di riferimento con il quale testare l'orizzontalità sugli altri due punti. Lasciando invariato il sistema di riferimento sono stati annotati i valori sulla vite per i quali, nel secondo  e nel terzo punto, la slitta rimane stabile.\\
 Ipotizzando l'imprecisione delle misure precedentemente effettuate si è ripetuto il procedimento e si è verificato che per il secondo e per il terzo punto il risultato rimaneva invariato, invece per il primo punto si è misurato un nuovo valore. Data l'ipotesi, si è calcolata la media e la deviazione standard su queste ultime 3 misure effettuate.\\
 La seguente tabella riporta i dati ottenuti:
 
 \begin{table}[h]
     \centering
-        \caption{Valori per l'orizzontalità della guida}
-
+        \caption{Valori per l'orizzontalità della guida \\ Unità di misura: quarti di giro di vite}
 \begin{tabular}{ccc|cc}
-
     \toprule
     $\alpha_{0}$&$\alpha_{2}$&$\alpha_{3}$&$\overline{\alpha}$&$\sigma_{\overline{\alpha}}$\\
     \midrule
@@ -81,34 +90,154 @@ La seguente tabella riporta i dati ottenuti:
     \end{tabular}
     \label{tab:guida_orizzontale}
 \end{table}
+
 Dati i valori ottenuti, si è assunto come zero del nuovo sistema di riferimento, considerando anche la relativa deviazione standard, la media delle misure $\overline{\alpha} \pm \sigma_{\overline{\alpha}}$, settando la ghiera.\\
 
 
-
-
 \subsection{Presa dati prima esperienza}
-Avendo settato il sistema di riferimento si è impostata la guida ad un' inclinazione di $15'$ ruotando 3 volte la vite, in quanto ciascun giro corrispondeva ad una variazione  di $5'$.\\
+Fissato il sistema di riferimento si è impostata la guida ad un'inclinazione di $15'$ ruotando 3 volte la vite, in quanto ciascun giro corrisponde ad una variazione  di $5'$.\\
 
-In seguito si sono posizionati i traguardi, inizialmente a 40cm e 50cm e, successivamente, lasciando invariata la posizione del primo, si è spostato il secondo di 10cm fino ad arrivare a 110cm. \\
-Per ciascun intervallo di spazio si sono prese 5 misure ripetute di intervalli di tempo, ognuna delle quali rappresentava il tempo impiegato dalla slitta per percorrere il relativo spazio. Sono stati letti i dati dal cronometro automatico, in seguito riportati in file di testo.\\
+Si sono posizionati i traguardi, inizialmente a 40cm e 50cm e, successivamente, lasciando invariata la posizione del primo, si è spostato solo il secondo a step di 10cm per volta fino ad arrivare a 110cm. \\
+Per ciascun intervallo di spazio ([40cm,50cm], [40cm,60cm], \dots [40cm,110cm]) si sono prese 5 misure ripetute di intervalli di tempo, ognuna delle quali rappresentava il tempo impiegato dalla slitta per percorrere il relativo spazio.\\  %Sono stati letti i dati dal cronometro automatico, in seguito riportati in file di testo.\\
+Il cronometro è stato impostato per entrambe le esperienze
 Si è ripetuta la medesima operazione di presa dati variando l'inclinazione della slitta a 30' e successivamente a 45'.
-Infine, operando sempre sulla slitta inclinata di 45', si è caricata la slitta con un disco di ottone al fine di incrementarne la massa. Si sono riportati i dati ottenuti in un altro file di testo.
+Infine, operando sempre sulla slitta inclinata di 45', si è caricata la slitta con un disco di ottone al fine di incrementarne la massa.
 
 \subsection{Presa dati seconda esperienza}
-Si è portata nuovamente la guida all'orizzontalità e si è scaricata la slitta. \\
-Per quanto riguarda l'elettrocalamita invece, è stata utilizzata in maniera differente rispetto alla prima esperienza, infatti quest'ultima ha impresso un impulso alla slitta che ha permesso alla stessa di procedere lungo tutta la guida, rallentata solamente dall'attrito viscoso dell'aria.\\
-I traguardi sono stati posizionati rispettivamente a 40cm e 60cm, per poi modificarne la distanza dall'origine aumentandola di 10 cm per volta arrivando fin o all'intervallo 90-110cm.
-Per ogni intervallo di spazio sono state prese 5 misurazioni temporali leggendo i dati dal cronometro digitale e riportandole su un file di testo.\\
-Si è poi ripetuto il procedimento e la conseguente presa dati una volta con la slitta carica e una seconda volta con la slitta scarica, ma utilizzando uno spessore di alluminio interposto tra la slitta e l'elettrocalamita.
+Si è portata la guida all'orizzontalità e l'elettrocalamita è stata configurata per imprimere una spinta alla slitta scarica della massa di ottone. Ciò ha consentito alla slitta di procedere per la guidovia, rallentando per le forze d'attrito viscoso dell'aria, oggetto di analisi in questa seconda esperienza.\\
+I traguardi sono stati posizionati rispettivamente a 40cm e 60cm, per poi modificarne la distanza dall'origine aumentandola di 10 cm per volta arrivando fino all'intervallo 90-110cm e per ogni intervallo di spazio sono state prese 5 misurazioni temporali.\\
+Si è poi ripetuto il procedimento e la conseguente presa dati, una volta con la slitta carica e una seconda volta con la slitta scarica utilizzando uno spessore di alluminio interposto tra la slitta e l'elettrocalamita.
 
-
-
-\section{Raccolta dati}
 \section{Analisi dati}
+\subsection{Prima esperienza}
+Si è svolta l'analisi dati delle misure dei tempi per una stessa angolazione e, applicando lo stesso procedimento alle altre.
+Per ciascun intervallo di spazio ([40cm, 50cm], [40cm, 60cm], \dots) si è calcolata la miglior stima di tendenza centrale, la medi $\overline{x}$, il suo relativo errore $\sigma_{\overline{x}}$ e la deviazione standard $\sigma$.
+I dati ottenuti sono riportati in tabella \ref{tab:15_primi}
+
+
+\begin{table}[]
+\begin{tabular}{ll|lll|lll|lll|lll}
+\toprule
+\multicolumn{2}{l|}{}      & \multicolumn{3}{c|}{\textbf{15'}}                      & \multicolumn{3}{c|}{\textbf{30'}}                      & \multicolumn{3}{c}{\textbf{45'}}                       & \multicolumn{3}{c|}{\textbf{45' con Massa}}            \\ \midrule
+Inizio      & Fine        & $\overline{t}$ & $\sigma$     & $\sigma_{\overline{t}}$ & $\overline{t}$ & $\sigma$     & $\sigma_{\overline{t}}$ & $\overline{t}$ & $\sigma$     & $\sigma_{\overline{t}}$ & $\overline{t}$ & $\sigma$     & $\sigma_{\overline{t}}$ \\
+$[\si{cm}]$ & $[\si{cm}]$ & $[\si{sec}]$   & $[\si{sec}]$ & $[\si{sec}]$           & $[\si{sec}]$   & $[\si{sec}]$ & $[\si{sec}]$           & $[\si{sec}]$   & $[\si{sec}]$ & $[\si{sec}]$           & $[\si{sec}]$   & $[\si{sec}]$ & $[\si{sec}]$           \\ \midrule
+40          & 50          & 0.6421200000   & 0.0033611000 & 0.0015031300           & 0.4528400000   & 0.0008876940 & 0.0003969890           & 0.3697000000   & 0.0004898980 & 0.0002190890           & 0.3729200000   & 0.0002167950 & 0.0000969536           \\
+40          & 60          & 1.1917800000   & 0.0029149600 & 0.0013036100           & 0.8434600000   & 0.0017826900 & 0.0007972450           & 0.6892200000   & 0.0010183300 & 0.0004554120           & 0.6915000000   & 0.0006480740 & 0.0002898280           \\
+40          & 70          & 1.6925200000   & 0.0052432800 & 0.0023448700           & 1.1920200000   & 0.0014923100 & 0.0006673830           & 0.9755600000   & 0.0014170400 & 0.0006337190           & 0.9782600000   & 0.0003974920 & 0.0001777640           \\
+40          & 80          & 2.1431600000   & 0.0093377200 & 0.0041759500           & 1.5132400000   & 0.0029022400 & 0.0012979200           & 1.2364200000   & 0.0008843080 & 0.0003954740           & 1.2389600000   & 0.0013145300 & 0.0005878780           \\
+40          & 90          & 2.5579200000   & 0.0084974700 & 0.0038001800           & 1.8019400000   & 0.0015789200 & 0.0007061160           & 1.4777600000   & 0.0016164800 & 0.0007229110           & 1.4787000000   & 0.0010000000 & 0.0004472140           \\
+40          & 100         & 2.9446800000   & 0.0034607800 & 0.0015477100           & 2.0811600000   & 0.0020562100 & 0.0009195650           & 1.7026400000   & 0.0009316650 & 0.0004166530           & 1.7025400000   & 0.0003646920 & 0.0001630950           \\
+40          & 110         & 3.3156400000   & 0.0065036900 & 0.0029085400           & 2.3383000000   & 0.0026172500 & 0.0011704700           & 1.9139400000   & 0.0027125600 & 0.0012131           & 1.9118800   & 0.0013065 & 0.0005842 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cc|ccc}
+\toprule
+Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
+$[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
+\midrule
+40 & 50  & 0.64212 & 0.0033611  & 0.00150313 \\
+40 & 60  & 1.19178 & 0.00291496 & 0.00130361 \\
+40 & 70  & 1.69252 & 0.00524328 & 0.00234487 \\
+40 & 80  & 2.14316 & 0.00933772 & 0.00417595 \\
+40 & 90  & 2.55792 & 0.00849747 & 0.00380018 \\
+40 & 100 & 2.94468 & 0.00346078 & 0.00154771 \\
+40 & 110 & 3.31564 & 0.00650369 & 0.00290854\\
+\bottomrule
+\end{tabular}
+    \caption{Medie tempi a 15'}
+    \label{tab:15_primi}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cc|ccc}
+\toprule
+Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
+$[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
+\midrule
+40 & 50  & 0.45284 & 0.000887694 & 0.000396989 \\
+40 & 60  & 0.84346 & 0.00178269  & 0.000797245 \\
+40 & 70  & 1.19202 & 0.00149231  & 0.000667383 \\
+40 & 80  & 1.51324 & 0.00290224  & 0.00129792  \\
+40 & 90  & 1.80194 & 0.00157892  & 0.000706116 \\
+40 & 100 & 2.08116 & 0.00205621  & 0.000919565 \\
+40 & 110 & 2.3383  & 0.00261725  & 0.00117047 \\
+\bottomrule
+\end{tabular}
+    \caption{Medie tempi a 30'}
+    \label{tab:30_primi}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cc|ccc}
+\toprule
+Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
+$[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
+\midrule
+40 & 50  & 0.3697  & 0.000489898 & 0.000219089 \\
+40 & 60  & 0.68922 & 0.00101833  & 0.000455412 \\
+40 & 70  & 0.97556 & 0.00141704  & 0.000633719 \\
+40 & 80  & 1.23642 & 0.000884308 & 0.000395474 \\
+40 & 90  & 1.47776 & 0.00161648  & 0.000722911 \\
+40 & 100 & 1.70264 & 0.000931665 & 0.000416653 \\
+40 & 110 & 1.91394 & 0.00271256  & 0.0012131 \\
+\bottomrule
+\end{tabular}
+    \caption{Medie tempi a 45'}
+    \label{tab:45_primi}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cc|ccc}
+\toprule
+Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
+$[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
+\midrule
+40 & 50  & 0.37292 & 0.000216795 & 9.69536e-05 \\
+40 & 60  & 0.6915  & 0.000648074 & 0.000289828 \\
+40 & 70  & 0.97826 & 0.000397492 & 0.000177764 \\
+40 & 80  & 1.23896 & 0.00131453  & 0.000587878 \\
+40 & 90  & 1.4787  & 0.001       & 0.000447214 \\
+40 & 100 & 1.70254 & 0.000364692 & 0.000163095 \\
+40 & 110 & 1.91188 & 0.00130652  & 0.000584294 \\
+\bottomrule
+\end{tabular}
+    \caption{Medie tempi a 45' con massa}
+    \label{tab:d45_primi}
+\end{table}
+
+
+
+
+
+Si è proceduto con il calcolo della velocità media per ogni intervallo di spazio di 10cm, partendo dall'intervallo [40cm-50cm] e terminando con l'intervallo [100cm-110cm] utilizzando la seguente formula:
+\begin{equation*}
+    \overline{v(x_i;x_{i+1})}=\frac{x_{i+1}-x_1}{t(40;x_{i+1})-t(40;x_1)}
+\end{equation*}
+assumendo come valori di $x_i$ tutti i possibili estremi degli intervalli considerati, ovvero 40cm,50cm,60cm,...,110cm.
+Utilizzando il teorema delle varianze si è poi calcolato l'errore casuale della velocità media per ogni intervallo 
+
+\subsection{Seconda esperienza}
+
+
+
 \section{Discussione dei risultati}
+\section{Margini di miglioramento}
 \section{Conclusione}
-\section{Appendice}
 \newpage
+\section{Appendice}
+\subsection{Formulario}
+\subsection{Dati grezzi}
+\subsection{Codice sorgente}
 
 
 
