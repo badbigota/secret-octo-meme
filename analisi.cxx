@@ -22,7 +22,7 @@ struct contenitore_statistico
 int main()
 {
     string angolo = "../Dati/PrimaParte/";
-    string prefix = "d45_"; //modifica se vuoi cambiare l inclinazione da leggere
+    string prefix = "15_"; //modifica se vuoi cambiare l inclinazione da leggere
     string extension = ".txt";
     const int numero_intervalli = 7;                              //quanti intervalli di spazio ci sono per ogni angolazione
     vector<contenitore_statistico> tempi(numero_intervalli);      //storage di tutte le info dei tempi dai file a stessa angolazione
@@ -105,6 +105,20 @@ int main()
         return 1;
     }
 
+    ofstream ferr("../Stat/PerLatex/errors_relativi_xy_" + prefix + ".txt");
+    if (!ferr)
+    {
+        cout << "Errore scrittura errori";
+        return 1;
+    }
+
+    ofstream fpos("../Stat/PerLatex/posteriori_dimostrazione_" + prefix + ".txt");
+    if (!fpos)
+    {
+        cout << "Errore scrittura errori";
+        return 1;
+    }
+
     cout << "----------- TEMPI -----------" << endl;
     //scrivere tempi
     for (auto a : tempi)
@@ -122,19 +136,69 @@ int main()
     }
 
     cout << "----------- CHI -----------" << endl;
-    vector<double> time;
-    vector<double> speed;
+    vector<double> time_tempo;
+    vector<double> speed_vel;
+    vector<double> speed_errors;
+    vector<double> time_errors;
+    vector<double> posizione;
+    cout << "FUCJ";
+    double speed_posteriori;
+    double err_rel_x, err_rel_y;
+    double avg_speed, err_rel_post_y;
+
     for (auto d : intervalli)
     {
-        time.push_back(d.tempo_intermedio);
-        speed.push_back(d.media_vel);
+        time_tempo.push_back(d.tempo_intermedio);
+        speed_vel.push_back(d.media_vel);
+        speed_errors.push_back(d.dstd_vel);
+        time_errors.push_back(d.dstd_tempo);
+        posizione.push_back(d.posizione_fine);
     }
 
-    cout << "A_intercetta: " << a_intercetta(time, speed) << "\t SIGMA_a:" << sigma_a(time, speed) << endl;
-    cout << "B_angolare: " << b_angolare(time, speed) << "\t SIGMA_b:" << sigma_b(time, speed) << endl;
+    speed_posteriori = sigma_y_posteriori(time_tempo, speed_vel);
+    avg_speed = (speed_vel[0] + speed_vel[6]) / 2;
+    err_rel_post_y = (speed_posteriori / avg_speed) * 100;
 
-    fchi << "A_intercetta: " << a_intercetta(time, speed) << "\t SIGMA_a:" << sigma_a(time, speed) << endl;
-    fchi << "B_angolare: " << b_angolare(time, speed) << "\t SIGMA_b:" << sigma_b(time, speed) << endl;
+    cout << "A_intercetta: " << a_intercetta(time_tempo, speed_vel) << "\t SIGMA_a:" << sigma_a(time_tempo, speed_vel) << endl;
+    cout << "B_angolare: " << b_angolare(time_tempo, speed_vel) << "\t SIGMA_b:" << sigma_b(time_tempo, speed_vel) << endl;
+
+    fchi << "A_intercetta: " << a_intercetta(time_tempo, speed_vel) << "\t SIGMA_a:" << sigma_a(time_tempo, speed_vel) << endl;
+    fchi << "B_angolare: " << b_angolare(time_tempo, speed_vel) << "\t SIGMA_b:" << sigma_b(time_tempo, speed_vel) << endl;
+
+    cout << "----------- ERRORI -----------(Li stampa e basta su file =) )" << endl;
+    ferr << "Fine\tE_rel_x\tE_rel_y" << endl;
+    fpos << "Fine\tE_rel_y\tE_post" << endl;
+
+    for (int i = 0; i < time_tempo.size(); i++)
+    {
+        err_rel_x = (time_errors[i] / time_tempo[i]) * 100;
+        err_rel_y = (speed_errors[i] / speed_vel[i]) * 100;
+        if (err_rel_x > err_rel_y)
+        {
+            ferr << posizione[i] << "\t" << err_rel_x << "\t > \t" << err_rel_y << endl;
+        }
+        else if (err_rel_x < err_rel_y)
+        {
+            ferr << posizione[i] << "\t" << err_rel_x << "\t < \t" << err_rel_y << endl;
+        }
+        else
+        {
+            ferr << posizione[i] << "\t" << err_rel_x << "\t = \t" << err_rel_y << endl;
+        }
+
+        if (err_rel_y > err_rel_post_y)
+        {
+            fpos << posizione[i] << "\t" << err_rel_y << "\t > \t" << err_rel_post_y << endl;
+        }
+        else if (err_rel_y < err_rel_post_y)
+        {
+            fpos << posizione[i] << "\t" << err_rel_y << "\t < \t" << err_rel_post_y << endl;
+        }
+        else
+        {
+            fpos << posizione[i] << "\t" << err_rel_y << "\t = \t" << err_rel_post_y << endl;
+        }
+    }
 
     return 0;
 }
