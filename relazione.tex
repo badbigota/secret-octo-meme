@@ -85,7 +85,7 @@ La seguente tabella riporta i dati ottenuti:
     \toprule
     $\alpha_{0}$&$\alpha_{2}$&$\alpha_{3}$&$\overline{\alpha}$&$\sigma_{\overline{\alpha}}$\\
     \midrule
-0,15&0,15&0,4&0,23&0,1443375672 \\
+0.15&0.15&0.4&0.23&0.1443375672 \\
     \bottomrule
     \end{tabular}
     \label{tab:guida_orizzontale}
@@ -110,8 +110,8 @@ Si è poi ripetuto il procedimento e la conseguente presa dati, una volta con la
 
 \section{Analisi dati}
 \subsection{Prima esperienza}
-Si è svolta l'analisi dati delle misure dei tempi per una stessa angolazione e, applicando lo stesso procedimento alle altre.
-Per ciascun intervallo di spazio ([40cm, 50cm], [40cm, 60cm], \dots) si è calcolata la miglior stima di tendenza centrale, la medi $\overline{x}$, il suo relativo errore $\sigma_{\overline{x}}$ e la deviazione standard $\sigma$.
+Si sono dapprima analizzate le misurazioni relative alla guida inclinata di 15' seguendo il procedimento riportato in seguito.\\
+Per ciascun intervallo di spazio ([40cm, 50cm], [40cm, 60cm], \dots) si è calcolata la miglior stima di tendenza centrale, la media $\overline{x}$, il suo relativo errore $\sigma_{\overline{x}}$ e la deviazione standard $\sigma$. Inoltre si sono calcolate le semisomme dei tempi medi tra coppie di intervalli consecutivi, ai quali d'ora in avanti si farà riferimento con il termine \textit{tempi intermedi}, e gli errori ad essi associati tramite il teorema delle varianze \ref{}.
 I dati ottenuti sono riportati in tabella \ref{tab:15_primi}
 
 
@@ -132,7 +132,6 @@ $[\si{cm}]$ & $[\si{cm}]$ & $[\si{sec}]$   & $[\si{sec}]$ & $[\si{sec}]$        
 \end{tabular}
 \end{table}
 
-
 \begin{table}[h]
 \centering
 \begin{tabular}{cc|ccc}
@@ -152,7 +151,6 @@ $[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
     \caption{Medie tempi a 15'}
     \label{tab:15_primi}
 \end{table}
-
 
 \begin{table}[h]
 \centering
@@ -194,7 +192,6 @@ $[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
     \label{tab:45_primi}
 \end{table}
 
-
 \begin{table}[h]
 \centering
 \begin{tabular}{cc|ccc}
@@ -216,19 +213,85 @@ $[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
 \end{table}
 
 
-
-
-
 Si è proceduto con il calcolo della velocità media per ogni intervallo di spazio di 10cm, partendo dall'intervallo [40cm-50cm] e terminando con l'intervallo [100cm-110cm] utilizzando la seguente formula:
 \begin{equation*}
-    \overline{v(x_i;x_{i+1})}=\frac{x_{i+1}-x_1}{t(40;x_{i+1})-t(40;x_1)}
+    \overline{v_{(x_i;x_{i+1})}}=\frac{x_{i+1}-x_i}{t(40;x_{i+1})-t(40;x_i)}
 \end{equation*}
 assumendo come valori di $x_i$ tutti i possibili estremi degli intervalli considerati, ovvero 40cm,50cm,60cm,...,110cm.
-Utilizzando il teorema delle varianze si è poi calcolato l'errore casuale della velocità media per ogni intervallo 
+
+Utilizzando il teorema delle varianze si è poi calcolato l'errore casuale della velocità media per ogni intervallo, assumendo come errore sul tempo la deviazione standard della media di ciascun intervallo precedentemente calcolato, e come errore sullo spazio la deviazione standard relativa alla distribuzione triangolare, utilizzando le seguenti :
+
+\begin{equation*}
+    \sigma_{v}= \sqrt{
+   \left( {\frac{\partial v}{\partial x_{i}}} \Big|_{\ast}\right)^{2} \cdot \sigma_{x_{i}}^2  +   
+   \left( {\frac{\partial v}{\partial x_{i+1}}}\Big|_{\ast}\right )^{2} \cdot \sigma_{x_{i+1}}^2   +   
+   \left( {\frac{\partial v}{\partial t_{\left(40; x_{i+1}\right)}}}\Big|_{\ast}\right)^{2}  \cdot \sigma_{t_{\left(40; x_{i+1}\right)}}^2 +   
+       \left( {\frac{\partial v}{\partial t_{\left(40; x_i\right)}}}\Big|_{\ast}\right)^{2} \cdot  \sigma_{t_{\left(40; x_i\right)}}^2
+    }
+\end{equation*}
+
+\begin{equation*}
+\begin{multilined}
+   \newline \sigma_{x}=\frac{\mathopen|2\Delta x\mathclose|}{\sqrt{24}} 
+
+   \newline \text{Dove $\Delta x$ è la più piccola tacca di misura leggibile dall'operatore sulla stecca metrica}
+\end{multilined}
+\end{equation*}
+
+Considerando le coppie di dati tempi intermedi e velocità medie corrispondenti precedentemente calcolati, queste ultime sono state utilizzate come coordinate di punti su un piano cartesiano, e si è ricercata una loro interpolazione lineare sfruttando il metodo del minimo ${\chi}^2$, ottenendo il coefficiente angolare, corrispondente alla componente dell'accelerazione di gravità g sulla parallela  alla guidovia, e l'intercetta della retta cercata, corrispondente alla velocità della slitta nella posizione iniziale, 40cm.\\
+Per stimare $g_{0}$ è stato sufficiente dividere il coefficiente angolare della retta per il seno dell'angolo di inclinazione della guida.
+Per il calcolo di $ \sigma_{g_{0}}$ si è scelto di calcolare l' errore relativo all'angolo utilizzando la distribuzione triangolare, l'errore relativo a $\sigma_b$ con il metodo del minimo ${\chi}^2$ per poi propagarli tramite il teorema delle varianze. Si è proceduto infine con il calcolo della compatibilità delle 4 stime dell'accelerazione di gravità $g_{0}$ relative ai 4 differenti campioni con $g=(9.801\pm 0.001)\si{m/s^2}$ stimata a Padova.\\
+Tutto il procedimento è stato ripetuto variando l'inclinazione della guida portandola dapprima a 30', poi a 45' ed infine mantenendo l'inclinazione della guida a 45' si è aumentata la massa della slitta con un disco di ottone.\\
+
+
+  
+
+
+\begin{figure}[h]
+    \caption{Interpolazione lineare a 15'}
+    \label{fig:g_0_15}
+    \centering
+           \includegraphics[width=15cm]{15primi.png}
+\end{figure}
+
+\begin{figure}[h]
+    \caption{Interpolazione lineare a 30'}
+    \label{fig:g_0_30}
+    \centering
+           \includegraphics[width=15cm]{30primi.png}
+\end{figure}
+
+\begin{figure}[h]
+    \caption{Interpolazione lineare a 45'}
+    \label{fig:g_0_45}
+    \centering
+           \includegraphics[width=15cm]{45primi.png}
+\end{figure}
+
+\begin{figure}[h]
+    \caption{Interpolazione lineare a 45' con massa}
+    \label{fig:g_0_p45}
+    \centering
+           \includegraphics[width=15cm]{45primi_p.png}
+\end{figure}
+
+
+
+\begin{table}[]
+\caption{Stime di accelerazione $b\pm \sigma_{b}$, di gravità $g_{0} \pm \sigma_{g_{0}}$ e relativa compatibilità $\lambda$ con g stimata a Padova}
+\label{tab:stima_b_g}
+\begin{tabular}{r|c|c|c|c}
+\hline
+\multicolumn{1}{l|}{}  & \textbf{15'}              & \textbf{30'}              & \textbf{45'}              & \textbf{45' con Massa}    \\ \hline
+\textbf{Accelerazione slitta $[\si{m/s^2}]$} & $0.04\pm0.01$    & $0.08\pm0.03$   & $0.12\pm0.05$    & $0.12\pm0.05$    \\
+\textbf{Gravità $[\si{m/s^2}]$}       & $9.45\pm0.06$ & $9.58\pm0.07$ & $9.51\pm0.07$ & $9.78\pm0.07$ \\ 
+\textbf{Compatibilità $\lambda$}              &5.1                &3.08           &3.9            &0.22\\ \hline
+\end{tabular}
+\end{table}
+
+
 
 \subsection{Seconda esperienza}
-
-
 
 \section{Discussione dei risultati}
 \section{Margini di miglioramento}
@@ -243,3 +306,13 @@ Utilizzando il teorema delle varianze si è poi calcolato l'errore casuale della
 
 
 \end{document}
+
+Premettendo che la compatibilità $\lambda$ sia:
+\begin{equation*}\label{eq:cases}
+    \begin{cases}
+    0<\lambda\leq1, & \text{Ottima}\\
+    1<\lambda\leq2, & \text{Discreta}\\
+    2<\lambda\leq3, & \text{Pessima}\\
+    3<\lambda, & \text{Non compatibile}\\
+    \end{cases}
+\end{equation*}
