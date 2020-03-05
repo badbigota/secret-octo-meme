@@ -22,7 +22,9 @@ struct contenitore_statistico
 int main()
 {
     string angolo = "../Dati/PrimaParte/";
-    string prefix = "15_"; //modifica se vuoi cambiare l inclinazione da leggere
+    string prefix; //modifica se vuoi cambiare l inclinazione da leggere
+    cout << "Inserisci angolo (15_ 30_ 45_ d45_): ";
+    cin >> prefix;
     string extension = ".txt";
     const int numero_intervalli = 7;                              //quanti intervalli di spazio ci sono per ogni angolazione
     vector<contenitore_statistico> tempi(numero_intervalli);      //storage di tutte le info dei tempi dai file a stessa angolazione
@@ -132,7 +134,7 @@ int main()
     for (auto d : intervalli)
     {
         cout << d.posizione_inizio << "\t" << d.posizione_fine << "\t" << d.tempo_intermedio << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
-        fspeed << d.posizione_inizio << "\t" << d.posizione_fine << "\t" << d.tempo_intermedio << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
+        fspeed << d.posizione_inizio << "\t" << d.posizione_fine << "\t" << d.tempo_intermedio << "\t" << d.dstd_tempo << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
     }
 
     cout << "----------- CHI -----------" << endl;
@@ -143,7 +145,7 @@ int main()
     vector<double> posizione;
     cout << "FUCJ";
     double speed_posteriori;
-    double err_rel_x, err_rel_y;
+    double err_rel_x, err_rel_y, err_rel_y_2;
     double avg_speed, err_rel_post_y;
 
     for (auto d : intervalli)
@@ -157,7 +159,8 @@ int main()
 
     speed_posteriori = sigma_y_posteriori(time_tempo, speed_vel);
     avg_speed = (speed_vel[0] + speed_vel[6]) / 2;
-    err_rel_post_y = (speed_posteriori / avg_speed) * 100;
+    // err_rel_post_y = (speed_posteriori / avg_speed) * 100;
+    err_rel_post_y = speed_posteriori;
 
     cout << "A_intercetta: " << a_intercetta(time_tempo, speed_vel) << "\t SIGMA_a:" << sigma_a(time_tempo, speed_vel) << endl;
     cout << "B_angolare: " << b_angolare(time_tempo, speed_vel) << "\t SIGMA_b:" << sigma_b(time_tempo, speed_vel) << endl;
@@ -173,6 +176,7 @@ int main()
     {
         err_rel_x = (time_errors[i] / time_tempo[i]) * 100;
         err_rel_y = (speed_errors[i] / speed_vel[i]) * 100;
+        err_rel_y_2 = speed_errors[i];
         if (err_rel_x > err_rel_y)
         {
             ferr << posizione[i] << "\t" << err_rel_x << "\t > \t" << err_rel_y << endl;
@@ -186,17 +190,17 @@ int main()
             ferr << posizione[i] << "\t" << err_rel_x << "\t = \t" << err_rel_y << endl;
         }
 
-        if (err_rel_y > err_rel_post_y)
+        if (err_rel_y_2 > err_rel_post_y)
         {
-            fpos << posizione[i] << "\t" << err_rel_y << "\t > \t" << err_rel_post_y << endl;
+            fpos << posizione[i] << "\t" << err_rel_y_2 << "\t > \t" << err_rel_post_y << endl;
         }
-        else if (err_rel_y < err_rel_post_y)
+        else if (err_rel_y_2 < err_rel_post_y)
         {
-            fpos << posizione[i] << "\t" << err_rel_y << "\t < \t" << err_rel_post_y << endl;
+            fpos << posizione[i] << "\t" << err_rel_y_2 << "\t < \t" << err_rel_post_y << endl;
         }
         else
         {
-            fpos << posizione[i] << "\t" << err_rel_y << "\t = \t" << err_rel_post_y << endl;
+            fpos << posizione[i] << "\t" << err_rel_y_2 << "\t = \t" << err_rel_post_y << endl;
         }
     }
 
