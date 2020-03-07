@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <cctype>
 using namespace std;
 
 //Funzione media
@@ -420,4 +421,29 @@ double sigma_b(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int
         }
     }
     return sigma_b_;
+}
+
+//Funzione per la stima del valor vero dati i vlaori e i relativi errori
+double media_ponderata(vector<double> valori, vector<double> errori, int inizio = 0, int fine = 0, string log = "")
+{
+    double num = 0, den = 0;
+    if (fine == 0)
+    {
+        fine = valori.size();
+    }
+    if (valori.size() != errori.size())
+    {
+        cout << "dimensione di vettore valori non è uguale a quella di vettore errori" << endl;
+        return 1;
+    }
+    for (int i = inizio; i < fine; i++)
+    {
+        num += valori[i] * (1 / errori[i]);
+        den += (1 / errori[i]);
+    }
+    if (log == "verbose")
+    {
+        cout << "Calcolo di valor vero tramite vettore di valori e vettori di errori" << endl;
+    }
+    return num / den;
 }
