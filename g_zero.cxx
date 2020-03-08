@@ -20,6 +20,9 @@ int main()
     double sigma_alfa_rad = M_PI / (38880 * sqrt(24));
     double g_0, sigma_g_0_rad;
     double angolo_deg, angolo_rad;
+    double comp_pd;
+    double g_pd = 9.806;
+    double sigma_g_pd = 0.001;
     ifstream fin(filename);
     if (!fin)
     {
@@ -44,32 +47,36 @@ int main()
     g_0 = a_x[0] / sin(angolo_rad);       //g_0 da a_x dividendo per il seno dell'angolo
                                           //propagazione senza approssimazione di angolo (sin x = x)
     sigma_g_0_rad = prop_2(a_x[0], sigma_a_x[0], angolo_rad, sigma_alfa_rad);
-    cout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << endl;
-    fout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << endl;
+    comp_pd = comp_3(g_0, g_pd, sigma_g_0_rad, sigma_g_pd);
+    cout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << "\t" << comp_pd << endl;
+    fout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << "\t" << comp_pd << endl;
 
     //30'
     angolo_deg = 0.50;
     angolo_rad = angolo_deg * M_PI / 180;
     g_0 = a_x[1] / sin(angolo_rad);
     sigma_g_0_rad = prop_2(a_x[1], sigma_a_x[1], angolo_rad, sigma_alfa_rad);
-    cout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << endl;
-    fout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << endl;
+    comp_pd = comp_3(g_0, g_pd, sigma_g_0_rad, sigma_g_pd);
+    cout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << "\t" << comp_pd << endl;
+    fout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << "\t" << comp_pd << endl;
 
     //45'
     angolo_deg = 0.75;
     angolo_rad = angolo_deg * M_PI / 180;
     g_0 = a_x[2] / sin(angolo_rad);
     sigma_g_0_rad = prop_2(a_x[2], sigma_a_x[2], angolo_rad, sigma_alfa_rad);
-    cout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << endl;
-    fout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << endl;
+    comp_pd = comp_3(g_0, g_pd, sigma_g_0_rad, sigma_g_pd);
+    cout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << "\t" << comp_pd << endl;
+    fout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << "\t" << comp_pd << endl;
 
     //45'p
     angolo_deg = 0.75;
     angolo_rad = angolo_deg * M_PI / 180;
     g_0 = a_x[3] / sin(angolo_rad);
     sigma_g_0_rad = prop_2(a_x[3], sigma_a_x[3], angolo_rad, sigma_alfa_rad);
-    cout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << endl;
-    fout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << endl;
+    comp_pd = comp_3(g_0, g_pd, sigma_g_0_rad, sigma_g_pd);
+    cout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << "\t" << comp_pd << endl;
+    fout << angolo_deg << "\t" << g_0 << "\t" << sigma_g_0_rad << "\t" << comp_pd << endl;
 
     return 0;
 }
