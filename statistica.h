@@ -172,6 +172,12 @@ double comp_2(vector<double> dati, int inizio, int fine, double media_ext, doubl
     return compatibility;
 }
 
+//Funzione per il calcolo di compatibilità avendo due valori medi e i sigma relativi
+double comp_3(double a, double b, double sigma_a, double sigma_b)
+{
+    return abs(a - b) / sqrt(pow(sigma_a, 2) + pow(sigma_b, 2));
+}
+
 //Funzione che calcola l'ampiezza degli intervalli per istogramma dato un vettore e il numero di intervalli
 double ampiezza_int(vector<double> dati, int num_int)
 {
