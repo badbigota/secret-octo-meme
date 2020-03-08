@@ -22,6 +22,7 @@ struct contenitore_statistico
 
 int main()
 {
+    cout<<"ATTENZIONE< ASSICURATI DI AVER CANCELLATO IL CONTENUTO DI ../Stat2/file_errori.txt altimenti si agginguno continuamente righe"<<endl;
     string angolo = "../Dati/SecondaParte/";
     string prefix; //modifica se vuoi cambiare il set di dati
     cout << "Inserisci prefisso file (nm_na_ nm_sa_ sm_na_): ";
@@ -54,7 +55,7 @@ int main()
         tempi[i].dstd_tempo = dstd(temp_time);
         tempi[i].dstd_tempo_media = dstd_media(temp_time);
         tempi[i].media_vel = spazio / tempi[i].media_tempo;
-        tempi[i].dstd_vel =sqrt((2*(1/pow(tempi[i].posizione_intermedia,2))*pow(dstd_spazio,2))+(0.2*0.2*(1/pow(tempi[i].posizione_intermedia,4))*(pow(tempi[i].dstd_tempo,2))));
+        tempi[i].dstd_vel =sqrt((2*(1/pow(tempi[i].media_tempo,2))*pow(dstd_spazio,2))+(pow(0.2,2)*(1/pow(tempi[i].media_tempo,4))*(pow(tempi[i].dstd_tempo_media,2))));
 
   
     }
@@ -88,8 +89,8 @@ int main()
 
     //stampare risultato chi quadro
     cout << "ERRORI DI CHI QUADRO" << endl;
-    cout << "A_intercetta: " << a_intercetta(posizione_x, vel_y) << "SIGMA_A: " << sigma_a(posizione_x, vel_y) << endl;
-    cout << "B_Angolare: " << b_angolare(posizione_x, vel_y) << "SIGMA_B: " << sigma_b(posizione_x, vel_y) << endl;
+    cout << "A_intercetta: " << a_intercetta(posizione_x, vel_y) << "\tSIGMA_A: " << sigma_a(posizione_x, vel_y) << endl;
+    cout << "B_Angolare: " << b_angolare(posizione_x, vel_y) << "\tSIGMA_B: " << sigma_b(posizione_x, vel_y) << endl;
     fchi << a_intercetta(posizione_x, vel_y) << "\t" << sigma_a(posizione_x, vel_y) << endl;
     fchi << b_angolare(posizione_x, vel_y) << "\t" << sigma_b(posizione_x, vel_y) << endl;
 
