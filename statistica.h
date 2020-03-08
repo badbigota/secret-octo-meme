@@ -438,12 +438,23 @@ double media_ponderata(vector<double> valori, vector<double> errori, int inizio 
     }
     for (int i = inizio; i < fine; i++)
     {
-        num += valori[i] * pow((1 / errori[i]),2);
-        den += pow((1 / errori[i]),2);
+        num += valori[i] * pow((1 / errori[i]), 2);
+        den += pow((1 / errori[i]), 2);
     }
     if (log == "verbose")
     {
         cout << "Calcolo di valor vero tramite vettore di valori e vettori di errori" << endl;
     }
     return num / den;
+}
+
+//Funzione per il calcolo dell'errore del valor vero
+double errore_v_vero(vector<double> errori)
+{
+    double sum = 0;
+    for (auto d : errori)
+    {
+        sum += pow((1 / d), 2);
+    }
+    return (1 / sqrt(sum));
 }
