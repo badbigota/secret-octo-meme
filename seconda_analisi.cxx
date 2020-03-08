@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <math.h>
 #include "statistica.h"
 using namespace std;
 
@@ -53,7 +54,9 @@ int main()
         tempi[i].dstd_tempo = dstd(temp_time);
         tempi[i].dstd_tempo_media = dstd_media(temp_time);
         tempi[i].media_vel = spazio / tempi[i].media_tempo;
-        tempi[i].dstd_vel = 0; //serve propagare con errori =)
+        tempi[i].dstd_vel =sqrt((2*(1/pow(tempi[i].posizione_intermedia,2))*pow(dstd_spazio,2))+(0.2*0.2*(1/pow(tempi[i].posizione_intermedia,4))*(pow(tempi[i].dstd_tempo,2))));
+
+  
     }
 
     ofstream fdati("../Stat2/dati_grafico_" + prefix + ".txt");
@@ -87,8 +90,12 @@ int main()
     cout << "ERRORI DI CHI QUADRO" << endl;
     cout << "A_intercetta: " << a_intercetta(posizione_x, vel_y) << "SIGMA_A: " << sigma_a(posizione_x, vel_y) << endl;
     cout << "B_Angolare: " << b_angolare(posizione_x, vel_y) << "SIGMA_B: " << sigma_b(posizione_x, vel_y) << endl;
+    fchi << a_intercetta(posizione_x, vel_y) << "\t" << sigma_a(posizione_x, vel_y) << endl;
+    fchi << b_angolare(posizione_x, vel_y) << "\t" << sigma_b(posizione_x, vel_y) << endl;
 
-    fchi << "A_intercetta: " << a_intercetta(posizione_x, vel_y) << "SIGMA_A: " << sigma_a(posizione_x, vel_y) << endl;
-    fchi << "B_Angolare: " << b_angolare(posizione_x, vel_y) << "SIGMA_B: " << sigma_b(posizione_x, vel_y) << endl;
+    //aggiungi tutti i valori ad un file solo... DA eseguire solo una volta...
+    ofstream error_file;
+    error_file.open("../Stat2/file_errori.txt", std::ios_base::app);
+    error_file << b_angolare(posizione_x, vel_y) << "\t" << sigma_b(posizione_x, vel_y) << endl;
 
 }
