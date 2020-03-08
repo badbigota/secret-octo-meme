@@ -438,8 +438,8 @@ double media_ponderata(vector<double> valori, vector<double> errori, int inizio 
     }
     for (int i = inizio; i < fine; i++)
     {
-        num += valori[i] * (1 / errori[i]);
-        den += (1 / errori[i]);
+        num += valori[i] * pow((1 / errori[i]),2);
+        den += pow((1 / errori[i]),2);
     }
     if (log == "verbose")
     {
