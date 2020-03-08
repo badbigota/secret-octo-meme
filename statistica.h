@@ -360,8 +360,8 @@ double sigma_a(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int
     double delta_;
     double sum = 0;
     if (fine == 0)
-    {                           //eseguo su tutto il vettore
-        sigma_y = dstd(dati_y); //errore casuale da impiegare nella formula
+    {                                                 //eseguo su tutto il vettore
+        sigma_y = sigma_y_posteriori(dati_x, dati_y); //errore casuale da impiegare nella formula, ipostesi che sono tutti uguali
         delta_ = delta(dati_x);
         for (auto d : dati_x)
         {
@@ -375,7 +375,7 @@ double sigma_a(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int
     }
     else if (fine != 0)
     { //solo su parte dei dati
-        sigma_y = dstd(dati_y, inizio, fine);
+        sigma_y = sigma_y_posteriori(dati_x, dati_y, inizio, fine);
         delta_ = delta(dati_x, inizio, fine);
         for (int i = inizio; i < fine; i++)
         {
@@ -394,33 +394,34 @@ double sigma_a(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int
 //Funzione per calcolo di errore su coeff. b (coeff. angolare)
 double sigma_b(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int fine = 0, string log = "")
 {
-    double sigma_b_;
+    double sigma_b_p;
     double sigma_y;
     double delta_;
     int size = 0;
     if (fine == 0)
     { //su tutti i valori
-        sigma_y = dstd(dati_y);
+        sigma_y = sigma_y_posteriori(dati_x, dati_y);
         size = dati_x.size();
         delta_ = delta(dati_x);
-        sigma_b_ = sigma_y * sqrt(size / delta_);
+        sigma_b_p = sigma_y * sqrt(size / delta_);
         if (log == "verbose")
         {
-            cout << "Calcolo su tutti i valori di vettori (" << sigma_b_ << ")" << endl;
+            cout << "Calcolo su tutti i valori di vettori (" << sigma_b_p << ")" << endl;
         }
     }
     else if (fine != 0)
     { //solo su alcuni valori di vettore
-        sigma_y = dstd(dati_y, inizio, fine);
+        sigma_y = sigma_y_posteriori(dati_x, dati_y, inizio, fine);
         size = fine - inizio;
         delta_ = delta(dati_x, inizio, fine);
-        sigma_b_ = sigma_y * sqrt(size / delta_);
+        sigma_b_p = sigma_y * sqrt(size / delta_);
+
         if (log == "verbose")
         {
-            cout << "Calcolo su parte di valori di vettori (" << sigma_b_ << ")" << endl;
+            cout << "Calcolo su parte di valori di vettori (" << sigma_b_p << ")" << endl;
         }
     }
-    return sigma_b_;
+    return sigma_b_p;
 }
 
 //Funzione per la stima del valor vero dati i vlaori e i relativi errori
