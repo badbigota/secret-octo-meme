@@ -345,19 +345,26 @@ $[\si{cm}]$&[sec]&[sec]&[sec]\\
 \end{table}
 \\
 In seguito sono state calcolate le velocità medie di percorrenza di ciascun tratto e il loro relativo errore tramite il teorema delle varianze, assumendo come errore sullo spazio la deviazione standard relativa alla distribuzione triangolare, per le medesime motivazioni date nella prima esperienza.\\
-Si è utilizzato come nella prima esperienza il metodo del minimo $\chi^2$ per calcolare il coefficiente angolare e l'intercetta della retta che meglio interpolasse le coppie di dati ($x_{intermedio}$,$v_{media}$) dalle quali è stato poi ricavato il grafico. Al fine di correggere la stima di $g_0$ riportata nella discussione della prima esperienza è necessario un fattore correttivo dipendente direttamente dalla forza di attrito,$\Delta_g$ esso è stato così stimato:
+Si è utilizzato come nella prima esperienza il metodo del minimo $\chi^2$ per calcolare il coefficiente angolare e l'intercetta della retta che meglio interpolasse le coppie di dati ($x_{intermedio}$,$v_{media}$), dalle quali è stato poi ricavato il grafico. Al fine di correggere la stima di $g_0$ riportata nella discussione della prima esperienza è necessario un fattore correttivo, $\Delta g$, dipendente direttamente dalla forza di attrito, così stimato:
+
 \begin{equation*}
-    v_{med}=\frac{v_{[40cm,50cm]}+v_{[100cm,110cm]}}{2}
+   \Delta g=\frac{v_{med}\cdot \lambda}{sin(\alpha)}
 \end{equation*}
+
+
+dove $\lambda$ assume due valori differenti a seconda dei casi. Quando la slitta è scarica $\lambda$ è la media ponderata dei coefficienti angolari delle rette dei primi due campioni; quando la slitta è carica invece si utilizza il coefficiente angolare ottenuto con l'interpolazione lineare dei dati nel terzo campione. $\alpha$ rappresenta l'angolo dei campioni considerati durante la prima esperienza e $v_{med}$ la velocità media calcolata seguendo tale equazione:
+
 \begin{equation*}
-   \Delta_g=\frac{v_{med}\cdot b}{sin(\alpha)}
+    v_{med}=\frac{v_{[40cm, 50cm]}+v_{[100cm, 110cm]}}{2}
 \end{equation*}
-Per il calcolo dell'errore relativo a $\Delta_g$ è stato utilizzato il teorema delle varianze, assumendo come deviazione standard della velocità media la propagazione degli errori delle velocità  $v_{[40cm,50cm]}$ e $v_{[100cm,110cm]}$, come deviazione standard su b la formula \ref{eq:errore_media_pond},  e infine come errore sull'angolo si è utilizzata la deviazione standard derivante dalla distribuzione triangolare.Nella seguente sono riportati i valori ottenuti.
+
+Per il calcolo dell'errore relativo a $\sigma_{\Delta g}$ è stato utilizzato il teorema delle varianze, assumendo come deviazione standard della velocità media la propagazione degli errori delle velocità  $v_{[40cm,50cm]}$ e $v_{[100cm,110cm]}$; come deviazione standard su $\lambda$ - dividendo i casi analogamente a quanto detto prima - il valore ottenuto dalla formula relativa all'errore della media ponderata presente nel paragrafo \ref{eq:errore_media_pond}; come errore sull'angolo si è utilizzata la deviazione standard derivante dalla distribuzione triangolare. Nella Tabella \ref{tab:delta_g} sono riportati i valori ottenuti.
+
 \begin{table}[h!]
     \centering
     \begin{tabular}{c|c|c}
         \toprule
-        $\alpha$ & $\Delta_g$ & $\sigma_{\Delta_g}$ \\
+        $\alpha$ & $\Delta g$ & $\sigma_{\Delta g}$ \\
         &$[\si{m/s^2}]$&$[\si{m/s^2}]$\\
         
     \midrule
@@ -406,6 +413,12 @@ La stima di $g_0$ effettuata con la slitta carica, con un inclinazione della gui
 
 
 \subsection{Seconda parte}
+g non cambia un cazzo con delta g
+errori giganteschi su delta g
+stima di forma guidovia da grafico delta g
+perche usare le velocita da 4050 e 100110 e non la penultima
+differenza massa o no a seconda di forma di slitta
+
 
 
 \section{Margini di miglioramento}
@@ -426,8 +439,8 @@ La stima di $g_0$ effettuata con la slitta carica, con un inclinazione della gui
 \textbf{Formula propagazione degli errori casuali}\\
 
 Sia z=($x_1$,...;$x_N$) funzione di N variabili casuali $x_1$,...,$x_N$ e sia ${x_i^\ast}$=($x_1^\ast$,...,$x_N^{\ast}$) l'insieme di tutti i valori veri associati a tali variabili, si ha 
-\begin{equation*}\label{eq:teorema_varianze}
-    \sigma_z^{2}\approx  \sum_{i=j=1}^{N}\left ( \frac{\partial z}{\partial x_i}\Big|_{x_i^{\ast}} \right )^{2}\cdot\sigma_{x_i}^{2} +\sum_{i=1,j=1,i\neq j}^{N}\left (\frac{\partial z }{\partial x_i}\Big|_{x_i^{\ast}} \right ) \cdot \left ( \frac{\partial z}{\partial x_j} \Big|_{x_j^{\ast}} \right )\cdot cov(x_i,x_j)
+\begin{equation*}
+    \sigma_z^{2}\approx  \sum_{i=j=1}^{N}\left ( \frac{\partial z}{\partial x_i}\Big|_{x_i^{\ast}} \right )^{2}\cdot\sigma_{x_i}^{2} +\sum_{i=1,j=1,i\neq j}^{N}\left (\frac{\partial z }{\partial x_i}\Big|_{x_i^{\ast}} \right ) \cdot \left ( \frac{\partial z}{\partial x_j} \Big|_{x_j^{\ast}} \right )\cdot cov(x_i,x_j)\label{eq:teorema_varianze}
 \end{equation*}
 E' stato utilizzato il simbolo $\approx$ in quanto si è scelto di troncare al primo termine lo sviluppo in serie di Taylor.
 
@@ -454,16 +467,16 @@ E' stato utilizzato il simbolo $\approx$ in quanto si è scelto di troncare al p
     \end{cases}
 \end{equation*}
 \textbf{Sigma y a posteriori}
-\begin{equation*}\label{eq:y_posteriori}
-    \sigma_{y, posteriori}=\sqrt{\frac{\sum_{i=1}^{N}(y-a-bx_{i})^{2}}{N-2}}
+\begin{equation*}
+    \sigma_{y, posteriori}=\sqrt{\frac{\sum_{i=1}^{N}(y-a-bx_{i})^{2}}{N-2}}\label{eq:y_posteriori}
 \end{equation*}
 \textbf{Media Ponderata}
-\begin{equation*}\label{eq:media_ponderata}
-    x_i=\frac{\sum_{i=1}^{N}\frac{x_i}{\sigma_{x_i}}}{\sum_{i=1}^{N}\frac{1}{\sigma_{x_i}}}
+\begin{equation*}\
+    x_i=\frac{\sum_{i=1}^{N}\frac{x_i}{\sigma_{x_i}}}{\sum_{i=1}^{N}\frac{1}{\sigma_{x_i}}}label{eq:media_ponderata}
 \end{equation*}
-\textbf{Errore Media Ponderata}\label{eq:errore_media_pond}
+\textbf{Errore Media Ponderata}
 \begin{equation*}
-     \sigma_x_i=\frac{1}{\sqrt{\sum_{i=1}^{N}\frac{1}{\sigma_i}}}
+     \sigma_x_i=\frac{1}{\sqrt{\sum_{i=1}^{N}\frac{1}{\sigma_{i}^{2}}}}\label{eq:errore_media_pond}
 \end{equation*}
    
 
