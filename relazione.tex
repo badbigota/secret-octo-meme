@@ -14,10 +14,24 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{wrapfig}
+\usepackage{geometry}
+\usepackage{array}
 \usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{multicol}
+
 \hypersetup{
 %    colorlinks=false,
-} 
+}
+%%AGGIUNTI
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{fourier, erewhon}
+%\usepackage{array, caption, floatrow, tabularx, makecell, booktabs}
+%\captionsetup{labelfont = sc}
+%\setcellgapes{3pt}
+
+%%FINE AGGIUNTI
 
 \def\titolo{Esperienza guidovia}
 \def\dataconsegna{20 Gennaio 2020}
@@ -78,7 +92,7 @@ La seguente tabella riporta i dati ottenuti:
     \toprule
     $\alpha_{0}$&$\alpha_{2}$&$\alpha_{3}$&$\overline{\alpha}$&$\sigma_{\overline{\alpha}}$\\
     \midrule
-    0.15&0.15&0.4&0.23&0.1443375672 \\
+    0.15&0.15&0.40&0.23&0.08\\
     \bottomrule
     \end{tabular}
     \label{tab:guida_orizzontale}
@@ -104,67 +118,32 @@ Si è poi ripetuto il procedimento e la conseguente presa dati, una volta con la
 \section{Analisi dati}
 \subsection{Prima esperienza}
 Si sono dapprima analizzate le misurazioni relative alla guida inclinata di 15' seguendo il procedimento riportato in seguito.\\
-Per ciascun intervallo di spazio ([40cm, 50cm], [40cm, 60cm], \dots) si è calcolata  la media $\overline{x}$, il suo relativo errore $\sigma_{\overline{x}}$ e la deviazione standard $\sigma$. Inoltre si sono calcolate le semisomme dei tempi medi tra coppie di intervalli consecutivi, ai quali d'ora in avanti si farà riferimento con il termine \textit{tempi intermedi}, e gli errori ad essi associati tramite il teorema delle varianze \ref{}.
-I dati ottenuti sono riportati in tabella \ref{tab:15_primi}
+Per ciascun intervallo di spazio ([40cm, 50cm], [40cm, 60cm], \dots) si è calcolata  la media $\overline{x}$, il suo relativo errore $\sigma_{\overline{x}}$ e la deviazione standard $\sigma$. Inoltre si sono calcolate le semisomme dei tempi medi tra coppie di intervalli consecutivi, ai quali d'ora in avanti si farà riferimento con il termine \textit{tempi intermedi}, e gli errori ad essi associati tramite il teorema delle varianze (\ref{eq:teorema_varianze}).
+I dati ottenuti sono riportati nella tabella  \ref{tab:15_primi}
 
-\begin{figure}[h]
-    \subfloat[]{
-    \begin{tabular}{m{0.6cm}m{0.6cm}|m{0.8cm}m{0.8cm}m{0.8cm}}
-        \toprule
-        Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
-        $[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
-        \midrule
-        40 & 50  & 0.642 & 0.003  & 0.001 \\
-        40 & 60  & 1.191 & 0.002 & 0.001 \\
-        40 & 70  & 1.692 & 0.005 & 0.002 \\
-        40 & 80  & 2.143 & 0.009 & 0.004 \\
-        40 & 90  & 2.557 & 0.008 & 0.003 \\
-        40 & 100 & 2.944 & 0.003 & 0.001 \\
-        40 & 110 & 3.315 & 0.006 & 0.002\\
-        \bottomrule
-    \end{tabular}
-    }
-    
-    \subfloat[]{
-    \begin{tabular}{m{0.6cm}m{0.6cm}|m{0.8cm}m{0.8cm}m{0.8cm}}
-        \toprule
-        Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
-        $[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\\midrule
-        40 & 50  & 0.4528 & 0.0008 & 0.0003 \\
-        40 & 60  & 0.8434 & 0.001  & 0.0007 \\
-        40 & 70  & 1.1920 & 0.001  & 0.0006 \\
-        40 & 80  & 1.513 & 0.002  & 0.001  \\
-        40 & 90  & 1.8019 & 0.001  & 0.0007 \\
-        40 & 100 & 2.0811 & 0.002  & 0.0009 \\
-        40 & 110 & 2.338  & 0.002  & 0.001 \\
-        \bottomrule
-        \end{tabular}
-    }
-\end{figure}
-
-\begin{table}[h!]
+\begin{figure}[h!]
     \centering
-    \begin{tabular}{cc|ccc}
-        \toprule
-        Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
-        $[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
-        \midrule
-        40 & 50  & 0.642 & 0.003  & 0.001 \\
-        40 & 60  & 1.191 & 0.002 & 0.001 \\
-        40 & 70  & 1.692 & 0.005 & 0.002 \\
-        40 & 80  & 2.143 & 0.009 & 0.004 \\
-        40 & 90  & 2.557 & 0.008 & 0.003 \\
-        40 & 100 & 2.944 & 0.003 & 0.001 \\
-        40 & 110 & 3.315 & 0.006 & 0.002\\
-        \bottomrule
-    \end{tabular}
-        \caption{Medie tempi a 15'}
+    \subfloat[Medie tempi a 15']{
         \label{tab:15_primi}
-    \end{table}
-    
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{cc|ccc}
+    \begin{tabular}{m{0.7cm}m{0.7cm}|m{1.0cm}m{1.0cm}m{1.0cm}}
+        \toprule
+        Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
+        $[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
+        \midrule
+        40 & 50  & 0.642 & 0.003 & 0.001 \\
+        40 & 60  & 1.191 & 0.002 & 0.001 \\
+        40 & 70  & 1.692 & 0.005 & 0.002 \\
+        40 & 80  & 2.143 & 0.009 & 0.004 \\
+        40 & 90  & 2.557 & 0.008 & 0.003 \\
+        40 & 100 & 2.944 & 0.003 & 0.001 \\
+        40 & 110 & 3.315 & 0.006 & 0.002\\
+        \bottomrule
+    \end{tabular}
+    \hspace{0.7cm}
+    }
+    \subfloat[Medie tempi a 30']{
+        \label{tab:30_primi}
+    \begin{tabular}{m{0.7cm}m{0.7cm}|m{1.0cm}m{1.0cm}m{1.0cm}}
         \toprule
         Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
         $[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\\midrule
@@ -177,62 +156,53 @@ I dati ottenuti sono riportati in tabella \ref{tab:15_primi}
         40 & 110 & 2.338  & 0.002  & 0.001 \\
         \bottomrule
         \end{tabular}
-    \caption{Medie tempi a 30'}
-    \label{tab:30_primi}
-    \end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{c c|c c c}
-\toprule
-Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
-$[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\ \midrule
-40 & 50  & 0.3697  & 0.0004 & 0.0002 \\
-40 & 60  & 0.6892 & 0.001  & 0.0004 \\
-40 & 70  & 0.9755 & 0.0014  & 0.0006 \\
-40 & 80  & 1.2364 & 0.0008 & 0.0003 \\
-40 & 90  & 1.4777 & 0.001  & 0.0007 \\
-40 & 100 & 1.7026 & 0.0009 & 0.0004 \\
-40 & 110 & 1.913 & 0.002  & 0.001 \\
-\bottomrule
-\end{tabular}
-    \caption{Medie tempi a 45'}
-    \label{tab:45_primi}
-\end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{cc|ccc}
-\hline
-Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
-$[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
-\toprule
-40 & 50  & 0.37292 & 0.0002 & 0.00009 \\
-40 & 60  & 0.6915  & 0.0006 & 0.0002 \\
-
-40 & 70  & 0.9782 & 0.0003 & 0.0001 \\
-40 & 80  & 1.2389 & 0.001  & 0.0005 \\
-
-40 & 90  & 1.4787  & 0.001   & 0.0004 \\
-
-40 & 100 & 1.7025 & 0.0003 & 0.0001 \\
-
-40 & 110 & 1.9118 & 0.001  & 0.0005 \\
-\bottomrule
-\end{tabular}
-    \caption{Medie tempi a 45' con massa}
-    \label{tab:d45_primi}
-\end{table}
+    }
+    \newline
+    \subfloat[Medie tempi a 45']{
+        \label{tab:45_primi}
+    \begin{tabular}{m{0.7cm}m{0.7cm}|m{1.0cm}m{1.0cm}m{1.0cm}}
+        \toprule
+        Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
+        $[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\
+        \midrule
+        40 & 50  & 0.3697  & 0.0004 & 0.0002 \\
+        40 & 60  & 0.6892 & 0.001  & 0.0004 \\
+        40 & 70  & 0.9755 & 0.0014  & 0.0006 \\
+        40 & 80  & 1.2364 & 0.0008 & 0.0003 \\
+        40 & 90  & 1.4777 & 0.001  & 0.0007 \\
+        40 & 100 & 1.7026 & 0.0009 & 0.0004 \\
+        40 & 110 & 1.913 & 0.002  & 0.001 \\
+        \bottomrule
+    \end{tabular}
+    \hspace{0.7cm}
+    }
+    \subfloat[Medie tempi a 45' con massa]{
+        \label{tab:d45_primi}
+    \begin{tabular}{m{0.7cm}m{0.7cm}|m{1.0cm}m{1.0cm}m{1.0cm}}
+        \toprule
+        Inizio&Fine&$\overline{t}$&$\sigma$&$\sigma_{\overline{t}}$\\
+        $[\si{cm}]$&[cm]&[sec]&[sec]&[sec]\\\midrule
+        40 & 50  & 0.37292 & 0.0002 & 0.00009 \\
+        40 & 60  & 0.6915  & 0.0006 & 0.0002 \\
+        40 & 70  & 0.9782 & 0.0003 & 0.0001 \\
+        40 & 80  & 1.2389 & 0.001  & 0.0005 \\
+        40 & 90  & 1.4787  & 0.001   & 0.0004 \\
+        40 & 100 & 1.7025 & 0.0003 & 0.0001 \\
+        40 & 110 & 1.9118 & 0.001  & 0.0005 \\
+        \bottomrule
+        \end{tabular}
+    }
+    \newline
+    \caption{Medie tempi e deviazioni standard}
+\end{figure}
 
 
 Si è proceduto con il calcolo della velocità media per ogni intervallo di spazio di 10cm, partendo dall'intervallo [40cm-50cm] e terminando con l'intervallo [100cm-110cm] utilizzando la seguente formula:
 \begin{equation*}
     \overline{v_{(x_i;x_{i+1})}}=\frac{x_{i+1}-x_i}{t(40;x_{i+1})-t(40;x_i)}
 \end{equation*}
-assumendo come valori di $x_i$ tutti i possibili estremi degli intervalli considerati, ovvero 40cm,50cm,60cm,...,110cm.
-
-
-
+assumendo come valori di $x_i$ tutti i possibili estremi degli intervalli considerati, ovvero 40cm, 50cm, 60cm, ... , 110cm.
+\newpage
 Utilizzando il teorema delle varianze si è poi calcolato l'errore casuale della velocità media per ogni intervallo, assumendo come errore sul tempo la deviazione standard della media di ciascun intervallo precedentemente calcolato, e come errore sullo spazio la deviazione standard relativa alla distribuzione triangolare, utilizzando le seguenti :
 
 \begin{equation*}\label{eq:propagazione_velocità}
@@ -243,19 +213,14 @@ Utilizzando il teorema delle varianze si è poi calcolato l'errore casuale della
        \left( {\frac{\partial v}{\partial t_{\left(40; x_i\right)}}}\Big|_{\ast}\right)^{2} \cdot  \sigma_{t_{\left(40; x_i\right)}}^2
     }
 \end{equation*}
-
-\begin{equation*}
+\begin{equation*}%Distrib triang
 \sigma_{x}=\frac{\mathopen|2\Delta x\mathclose|}{\sqrt{24}} 
 \end{equation*}
- 
 Dove $\Delta x$ è la più piccola tacca di misura leggibile dall'operatore sulla stecca metrica.\\
-\\
-
 Considerando le coppie di dati tempi intermedi e velocità medie corrispondenti precedentemente calcolati, queste ultime sono state utilizzate come coordinate di punti su un piano cartesiano, e si è ricercata una loro interpolazione lineare sfruttando il metodo del minimo ${\chi}^2$, ottenendo il coefficiente angolare, corrispondente alla componente dell'accelerazione di gravità g sulla parallela  alla guidovia, e l'intercetta della retta cercata, corrispondente alla velocità della slitta nella posizione iniziale, 40cm.\\
 Per stimare $g_{0}$ è stato sufficiente dividere il coefficiente angolare della retta per il seno dell'angolo di inclinazione della guida.
-Per il calcolo di $ \sigma_{g_{0}}$ si è scelto di calcolare l' errore relativo all'angolo utilizzando la distribuzione triangolare, l'errore relativo a $\sigma_b$ con il metodo del minimo ${\chi}^2$ per poi propagarli tramite il teorema delle varianze. Si è proceduto infine con il calcolo della compatibilità delle 4 stime dell'accelerazione di gravità $g_{0}$ relative ai 4 differenti campioni con $g=(9.801\pm 0.001)\si{m/s^2}$ stimata a Padova. Si è fatto riferimento alle seguenti per valutare  $\lambda$ e la sua bontà:
-
-\begin{equation*}
+Per il calcolo di $ \sigma_{g_{0}}$ si è scelto di calcolare l' errore relativo all'angolo utilizzando la distribuzione triangolare, l'errore relativo a $\sigma_b$ con il metodo del minimo ${\chi}^2$ per poi propagarli tramite il teorema delle varianze. Si è proceduto infine con il calcolo della compatibilità delle 4 stime dell'accelerazione di gravità $g_{0}$ relative ai 4 differenti campioni con $g_{PD}=(9.801\pm 0.001)\si{m/s^2}$ stimata a Padova. Si è fatto riferimento alle seguenti per valutare  $\lambda$ e la sua bontà:
+\begin{equation*}%Comp
     \label{eq:cases}
     \begin{cases}
     0<\lambda\leq 1, & \text{Ottima}\\
@@ -265,12 +230,9 @@ Per il calcolo di $ \sigma_{g_{0}}$ si è scelto di calcolare l' errore relativo
     \end{cases}
 \end{equation*}
 
-
-
-
 In seguito tutto il procedimento è stato ripetuto variando l'inclinazione della guida portandola dapprima a 30', poi a 45' ed infine mantenendo l'inclinazione della guida a 45' si è aumentata la massa della slitta con un disco di ottone.\\
 
-\begin{table}[h!]
+\begin{table}[h!]%b g_0 e comp
     \centering
     \begin{tabular}{r|c|c|c|c}
     \toprule
@@ -281,13 +243,124 @@ In seguito tutto il procedimento è stato ripetuto variando l'inclinazione della
         \textbf{Compatibilità $\lambda$} &1.8 &0.78 &4.6 &0.16\\
         \bottomrule
     \end{tabular}
-    \caption{Stime di accelerazione $b\pm \sigma_{b}$, di gravità $g_{0} \pm \sigma_{g_{0}}$ e relativa compatibilità $\lambda$ con g stimata a Padova}
+    \caption{Stime di accelerazione $b\pm \sigma_{b}$, di gravità $g_{0} \pm \sigma_{g_{0}}$ e relativa compatibilità $\lambda$ con $g_{PD}$}
     \label{tab:stima_b_g}
 \end{table}
 
+
+Tabelle velocità e grafici:
+
+\begin{figure}[h!]
+    \centering
+    \caption{15'}
+    \subfloat[Interpolazione lineare a 15']{
+        \label{fig:g_0_15}
+        \includegraphics[width=8.2cm]{15primi.png}
+    }
+    \subfloat[15']{
+    \label{tab:15primi}
+    \begin{tabular}{m{1.1cm}|m{1.1cm}|m{1cm}|m{1cm}}
+    \toprule
+    $t_{int}$ & $\sigma_t$ & $v_{ist}$ & $\sigma_v$ \\
+    {[}s{]} & [s] & [m/s] & [m/s]\\
+    \midrule
+    0.321 & 0.001 & 0.1557 & 0.0009 \\
+    0.916 & 0.001 & 0.181 & 0.001 \\
+    1.442 & 0.002 & 0.199 & 0.001 \\
+    1.917 & 0.004 & 0.221 & 0.002 \\
+    2.350 & 0.005 & 0.241 & 0.003 \\
+    2.751 & 0.004 & 0.258 & 0.003 \\
+    3.130 & 0.003 & 0.269 & 0.002 \\ 
+    \bottomrule
+    \end{tabular}
+    }
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
+    \caption{30'}
+    \subfloat[Interpolazione lineare a 30']{
+    \label{fig:g_0_30}
+           \includegraphics[width=8.2cm]{30primi.png}
+    }
+    \subfloat[30']{
+    \label{tab:30primi}
+    \begin{tabular}{m{1.1cm}|m{1.1cm}|m{1cm}|m{1cm}}
+    \toprule
+    $t_{int}$ & $\sigma_t$ & $v_{ist}$ & $\sigma_v$ \\
+    {[}s{]} & [s] & [m/s] & [m/s]\\
+    \midrule
+    0.2264 & 0.0003 & 0.220 & 0.001 \\
+    0.6481 & 0.0008 & 0.256 & 0.001 \\
+    1.017 & 0.001 & 0.286 & 0.001 \\
+    1.352 & 0.001 & 0.311 & 0.002 \\
+    1.657 & 0.001 & 0.346 & 0.002 \\
+    1.941 & 0.001 & 0.358 & 0.002 \\
+    2.209 & 0.001 & 0.388 & 0.003 \\
+    \bottomrule
+\end{tabular}
+}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{45'}
+    \subfloat[Interpolazione lineare a 45']{
+    \label{fig:g_0_45}
+           \includegraphics[width=8.2cm]{45_primi.png}
+    }
+    \subfloat[45']{
+    \label{tab:45primi}
+    \begin{tabular}{m{1.1cm}|m{1.1cm}|m{1cm}|m{1cm}}
+    \toprule
+    $t_{int}$ & $\sigma_t$ & $v_{ist}$ & $\sigma_v$ \\
+    {[}s{]} & [s] & [m/s] & [m/s]\\
+    \midrule
+    0.18485 & 0.0002 & 0.270 & 0.001 \\
+    0.52946 & 0.0005 & 0.312 & 0.001 \\ 
+    0.83239 & 0.0007 & 0.349 & 0.002 \\ 
+    1.10599 & 0.0007 & 0.383 & 0.002 \\ 
+    1.35709 & 0.0008 & 0.414 & 0.002 \\
+    1.5902 & 0.0008 & 0.444 & 0.003 \\
+    1.808 & 0.001 & 0.473 & 0.003 \\
+    \bottomrule
+    \end{tabular}
+    }
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{45' massa}
+    \subfloat[Interpolazione lineare a 45' con massa]{
+    \label{fig:g_0_p45}
+           \includegraphics[width=8.2cm]{45_primip.png}
+    }
+    \subfloat[45' massa]{
+    \label{tab:45primi_p}
+    \begin{tabular}{m{1.1cm}|m{1.1cm}|m{1cm}|m{1cm}}
+    \toprule
+    $t_{int}$ & $\sigma_t$ & $v_{ist}$ & $\sigma_v$ \\
+    {[}s{]} & [s] & [m/s] & [m/s]\\
+    \midrule
+    0.18646 & 0,00009 & 0.268 & 0.001 \\
+    0.5322 & 0.0003 & 0.313 & 0.001 \\
+    0.8348 & 0.0003 & 0.348 & 0.002 \\
+    1.1086 & 0.0006 & 0.383 & 0.002 \\
+    1.3588 & 0.0007 & 0.417 & 0.002 \\
+    1.5906 & 0.0004 & 0.446 & 0.002 \\
+    1.8072 & 0.0006 & 0.477 & 0.003 \\
+    \bottomrule
+\end{tabular}
+}
+\end{figure}
+
+\newpage
+
 \subsection{Seconda esperienza}
 In primo luogo sono stati analizzati i valori derivanti dalle misurazioni ottenute con la slitta scarica e senza spessore di alluminio per ciascun segmento di 20cm ([40cm,60cm], [50cm,70cm], ...) al fine di calcolare media $\overline{t}$, la deviazione standard $\sigma$ e la deviazione standard della media $\sigma_{\overline{t}}$ dei tempi impiegati per percorrere la distanza fra i traguardi.\\
-\begin{table}[h!]
+
+\begin{table}[h!]%NM_NA
 \centering
 \begin{tabular}{c|ccc}
 \toprule
@@ -306,7 +379,7 @@ $[\si{cm}]$&[sec]&[sec]&[sec]\\
     \label{tab:nm_na}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[h!]%SM_NA
 \centering
 \begin{tabular}{c|ccc}
 \toprule
@@ -325,7 +398,7 @@ $[\si{cm}]$&[sec]&[sec]&[sec]\\
     \label{tab:sm_na}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[h!]%NM_SA
 \centering
 \begin{tabular}{c|ccc}
 \toprule
@@ -343,24 +416,41 @@ $[\si{cm}]$&[sec]&[sec]&[sec]\\
     \caption{Medie tempi della slitta scarica con alluminio}
     \label{tab:nm_sa}
 \end{table}
-\\
+
+
+
 In seguito sono state calcolate le velocità medie di percorrenza di ciascun tratto e il loro relativo errore tramite il teorema delle varianze, assumendo come errore sullo spazio la deviazione standard relativa alla distribuzione triangolare, per le medesime motivazioni date nella prima esperienza.\\
-Si è utilizzato come nella prima esperienza il metodo del minimo $\chi^2$ per calcolare il coefficiente angolare e l'intercetta della retta che meglio interpolasse le coppie di dati ($x_{intermedio}$,$v_{media}$), dalle quali è stato poi ricavato il grafico. Al fine di correggere la stima di $g_0$ riportata nella discussione della prima esperienza è necessario un fattore correttivo, $\Delta g$, dipendente direttamente dalla forza di attrito, così stimato:
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c}
+    \toprule
+        Campione & Coefficiente angolare & $\gamma$\\
+    \midrule
+        1 &  $-0.0000681228 \pm 0.0000199878$ & \\ 
+        2 & $-0.0000205093 \pm 0.0000465893$ & \multirow{-2}{*}{$-0.0000607214 \pm 0.0000183687$} \\
+        \hline
+        3 &  $-0.00024894 \pm 0.0000171628$ & $-0.00024894 \pm 0.0000171628$\\
+     \bottomrule
+\end{tabular}
+    \caption{Coefficienti angolari e stime di $\gamma$}
+    \label{stime_di_gamma}
+\end{table}
+
+
+
+Si è utilizzato il metodo del minimo $\chi^2$ per calcolare il coefficiente angolare e l'intercetta della retta che meglio interpolasse le coppie di dati ($x_{intermedio}$, $v_{media}$), dalle quali è stato poi ricavato il grafico. Al fine di correggere la stima di $g_0$ riportata nella discussione della prima esperienza è necessario un fattore correttivo, $\Delta g$, dipendente direttamente dalla forza di attrito, così stimato:
 \begin{equation*}
-   \Delta g=\frac{v_{med}\cdot \lambda}{sin(\alpha)}
+   \Delta g=\frac{v_{med}\cdot \gamma}{sin(\alpha)}
 \end{equation*}
-
-
-dove $\lambda$ assume due valori differenti a seconda dei casi. Quando la slitta è scarica $\lambda$ è la media ponderata dei coefficienti angolari delle rette dei primi due campioni; quando la slitta è carica invece si utilizza il coefficiente angolare ottenuto con l'interpolazione lineare dei dati nel terzo campione. $\alpha$ rappresenta l'angolo dei campioni considerati durante la prima esperienza e $v_{med}$ la velocità media calcolata seguendo tale equazione:
-
+dove $\gamma$ assume due valori differenti a seconda dei casi. Quando la slitta è scarica $\gamma$ è la media ponderata dei coefficienti angolari delle rette dei primi due campioni analizzati in questa seconda esperienza; quando la slitta è carica invece si utilizza il coefficiente angolare ottenuto con l'interpolazione lineare dei dati nel terzo campione. $\alpha$ rappresenta l'angolo di inclinazione della guida nei campioni considerati durante la prima esperienza e $v_{med}$ la velocità media (degli stessi campioni) così calcolata:
 \begin{equation*}
     v_{med}=\frac{v_{[40cm, 50cm]}+v_{[100cm, 110cm]}}{2}
 \end{equation*}
+Per il calcolo dell'errore relativo a $\sigma_{\Delta g}$ è stato utilizzato il teorema delle varianze, assumendo come $\sigma_{v_{med}}$ la propagazione degli errori delle velocità $v_{[40cm,50cm]}$ e $v_{[100cm,110cm]}$; come $\sigma_{\gamma}$ - dividendo i casi analogamente a quanto detto per $\gamma$ - il valore ottenuto dalla formula relativa all'errore della media ponderata presente nel paragrafo \ref{eq:errore_media_pond}; come $\sigma_{\alpha}$ si è utilizzata la deviazione standard derivante dalla distribuzione triangolare. Nella Tabella \ref{tab:delta_g} sono riportati i valori ottenuti.
 
-Per il calcolo dell'errore relativo a $\sigma_{\Delta g}$ è stato utilizzato il teorema delle varianze, assumendo come deviazione standard della velocità media la propagazione degli errori delle velocità  $v_{[40cm,50cm]}$ e $v_{[100cm,110cm]}$; come deviazione standard su $\lambda$ - dividendo i casi analogamente a quanto detto prima - il valore ottenuto dalla formula relativa all'errore della media ponderata presente nel paragrafo \ref{eq:errore_media_pond}; come errore sull'angolo si è utilizzata la deviazione standard derivante dalla distribuzione triangolare. Nella Tabella \ref{tab:delta_g} sono riportati i valori ottenuti.
 
-\begin{table}[h!]
+\begin{table}[h!]%DELTA G
     \centering
     \begin{tabular}{c|c|c}
         \toprule
@@ -368,25 +458,42 @@ Per il calcolo dell'errore relativo a $\sigma_{\Delta g}$ è stato utilizzato il
         &$[\si{m/s^2}]$&$[\si{m/s^2}]$\\
         
     \midrule
-    15' &0.00276126 & 0.000835369 \\ 
-    30' & 0.00197339 & 0.000596978 \\
-    45' & 0.00158846 & 0.000480526 \\
-    45' carica & 0.00651632 & 0.000449333 \\
+    15' & 0.0027 & 0.0008 \\ 
+    30' & 0.0019 & 0.0005 \\
+    45' & 0.0015 & 0.0004 \\
+    45' carica & 0.0065 & 0.0004 \\
  \bottomrule
     \end{tabular}
     \label{tab:delta_g}
+    \caption{Valori di $\Delta g \pm \sigma_{\Delta g}$}
+\end{table}
+
+
+In ultima fase si è calcolato $g=g_0 + \Delta g$ stimando il relativo errore propagando gli errori con il teorema delle varianze. $g$ è stato confrontato con la compatibilità con $g_{PD}$. Tutti questi dati sono riportati in Tabella \ref{tab:stima_b_g}.\\
+
+\begin{table}[h!]%G corretto g_0 e delta_g
+    \centering
+    \begin{tabular}{r|c|c|c|c}
+    \toprule
+    & \textbf{15'} & \textbf{30'} & \textbf{45'} & \textbf{45' con Massa}\\
+    \midrule
+        \textbf{Gravità $[\si{m/s^2}]$}       & 9.45\pm0.09$ & $9.5\pm0.1$ & $9.51\pm0.03$ & $9.79\pm0.05 \\
+      \textbf{Compatibilità $\lambda$} .& .& .& .&\\
+        \bottomrule
+    \end{tabular}
+    \caption{ Stime di gravità $g \pm \sigma_{g}$ (corretta con $\Delta g$) e relativa compatibilità $\lambda$ con $g_{PD}$}
+    \label{tab:stima_b_g}
 \end{table}
 
 \section{Discussione dei risultati}
 \subsection{Prima parte}
 Una prima analisi delle deviazioni standard ottenute posizionando la guidovia a 15' evidenzia un andamento piuttosto crescente delle stesse fino all'intervallo [40cm-80cm], per poi subire una drastica diminuzione nell'intervallo [40cm-100cm] e, conseguentemente aumentare nuovamente. Tale comportamento lo si osserva anche negli altri 3 campioni. A questo punto dell'analisi non si è in grado di fornire una spiegazione al comportamento descritto.\\
 
-Le premesse teoriche a base dell'esperienza concordano pienamente con i dati delle velocità medie di ogni intervallo di spazio di 10\si{cm}. Infatti, il moto che compie la slitta è riconducibile ad un moto uniformemente accelerato e, in conseguenza di ciò, come le evidenze sperimentali dimostrano, le velocità al trascorrere del tempo aumentano. L'espressione che determina matematicamente l'andamento della slitta, assumendo che essa stia compiendo un moto uniformemente accelerato, è $v=v_{0}+a\cdot t$. L'andamento di tale funzione è lineare, e ciò permette di considerare la velocità media di ogni intervallo di 0.1\si{m} come velocità istantanea nel tempo intermedio, consentendo di rappresentare graficamente le coppie di punti ($t_{Intermedio}, v_{Istantanea}$) con  le relative barre d'errore sulle ordinate.\\
+Le premesse teoriche a base dell'esperienza concordano pienamente con i dati delle velocità medie di ogni intervallo di spazio di 10\si{cm}. Infatti, il moto che compie la slitta è riconducibile ad un moto uniformemente accelerato e, in conseguenza di ciò, come le evidenze sperimentali dimostrano, le velocità al trascorrere del tempo aumentano. L'espressione che determina matematicamente l'andamento della slitta, assumendo che essa stia compiendo un moto uniformemente accelerato, è $v=v_{0}+a\cdot t$. L'andamento di tale funzione è lineare, e ciò permette di considerare la velocità media di ogni intervallo di 0.1\si{m} come velocità istantanea nel tempo intermedio, consentendo di rappresentare graficamente le coppie di punti ($t_{intermedio}, v_{istantanea}$) con  le relative barre d'errore sulle ordinate.\\
 
 Per il calcolo della deviazione standard delle velocità istantanee si è utilizzato, così come spiegato nell'analisi, il teorema delle varianze assumendo come errore casuale delle posizioni la deviazione standard derivante dalla distribuzione triangolare. Tale scelta è stata determinata dal fatto che si sta utilizzando una stecca metrica, strumento analogico in cui la percezione dell'occhio dell'operatore riesce a distinguere a quale tacca si avvicina di più il segno del traguardo. Essendo la più piccola tacca di misura pari ad un millimetro e il coefficiente affidabilità pari a 1, $\sigma_x$ nelle due posizioni è $\approx0.0004\si{m}$.\\
 Nel calcolo di $\sigma_v$ è stato opportuno operare una differenza tra il primo intervallo ed i successivi: nel primo intervallo, [40cm-50cm], infatti, facendo riferimento alla formula \ref{eq:propagazione_velocità}, si è assunto pari a zero il quarto termine della somma del radicando in quanto esso non è definito; per tutti gli altri casi la formula non ha subito variazioni.
-
-\begin{wraptable}{l}{5cm}
+\begin{wraptable}{l}{5cm}%Sigma a posteriori
     \begin{tabular}{c|c}
         \toprule
         $\alpha$ & $\sigma_{v, post}$ \\
@@ -412,6 +519,8 @@ La stima di $g_0$ effettuata con la slitta carica, con un inclinazione della gui
 
 
 
+
+
 \subsection{Seconda parte}
 g non cambia un cazzo con delta g
 errori giganteschi su delta g
@@ -423,9 +532,11 @@ differenza massa o no a seconda di forma di slitta
 
 \section{Margini di miglioramento}
 \section{Conclusione}
+
+
+
 \newpage
 \section{Appendice}
-
 \subsection{Formulario}
 \textbf{Media, deviazione standard, deviazione standard della media}
 \begin{equation*}
@@ -442,7 +553,7 @@ Sia z=($x_1$,...;$x_N$) funzione di N variabili casuali $x_1$,...,$x_N$ e sia ${
 \begin{equation*}
     \sigma_z^{2}\approx  \sum_{i=j=1}^{N}\left ( \frac{\partial z}{\partial x_i}\Big|_{x_i^{\ast}} \right )^{2}\cdot\sigma_{x_i}^{2} +\sum_{i=1,j=1,i\neq j}^{N}\left (\frac{\partial z }{\partial x_i}\Big|_{x_i^{\ast}} \right ) \cdot \left ( \frac{\partial z}{\partial x_j} \Big|_{x_j^{\ast}} \right )\cdot cov(x_i,x_j)\label{eq:teorema_varianze}
 \end{equation*}
-E' stato utilizzato il simbolo $\approx$ in quanto si è scelto di troncare al primo termine lo sviluppo in serie di Taylor.
+E' stato utilizzato il simbolo $\approx$ in quanto si è scelto di troncare al primo termine lo sviluppo in serie di Taylor.\\
 
 
 \textbf{Formula calcolo compatibilità}\\
@@ -472,17 +583,13 @@ E' stato utilizzato il simbolo $\approx$ in quanto si è scelto di troncare al p
 \end{equation*}
 \textbf{Media Ponderata}
 \begin{equation*}\
-    x_i=\frac{\sum_{i=1}^{N}\frac{x_i}{\sigma_{x_i}}}{\sum_{i=1}^{N}\frac{1}{\sigma_{x_i}}}label{eq:media_ponderata}
+    x_i=\frac{\sum_{i=1}^{N}\frac{x_i}{\sigma_{x_i}}}{\sum_{i=1}^{N}\frac{1}{\sigma_{x_i}}} \label{eq:media_ponderata}
 \end{equation*}
 \textbf{Errore Media Ponderata}
 \begin{equation*}
-     \sigma_x_i=\frac{1}{\sqrt{\sum_{i=1}^{N}\frac{1}{\sigma_{i}^{2}}}}\label{eq:errore_media_pond}
+     \sigma_{x_i}=\frac{1}{\sqrt{\sum_{i=1}^{N}\frac{1}{\sigma_{i}^{2}}}}\label{eq:errore_media_pond}
 \end{equation*}
-   
-
 \subsection{Codice sorgente}
-In seguito sono riportati i programmi utilizzati nell'analisi dati.
-
 \paragraph{statistica.h} Libreria contenente alcune funzioni utilizzate nei programmi sottostanti.
 \begin{lstlisting}[language=C++, label=lst:statistica.h, caption=statistica.h]
 #include <iostream>
@@ -938,7 +1045,8 @@ int main(){
 }
 \end{lstlisting}
 
-\paragraph{seconda\_analisi.cxx} Programma adibito al calcolo delle velocità relative alle misurazioni ottenute nella seconda parte e dei relativi errori. Fornisce inoltre l'intercetta e il coefficiente angolare e i relativi errori.  
+
+\paragraph{seconda\_analisi.cxx} Programma adibito al calcolo delle velocità relative alle misurazioni ottenute nella seconda parte e dei relativi errori. Fornisce inoltre l'intercetta e il coefficiente angolare e i relativi errori.
 \begin{lstlisting}[language=C++, label=lst:seconda_analisi.cxx, caption=seconda\_analisi.cxx]
 #include <iostream>
 #include <fstream>
@@ -1024,105 +1132,33 @@ int main(){
 \end{lstlisting}
 
 
-\begin{figure}[h]
-    \caption{Interpolazione lineare a 15'}
-    \label{fig:g_0_15}
-    \centering
-           \includegraphics[width=15cm]{15primi.png}
-\end{figure}
+
+
+
+
+
+
 
 \begin{figure}[h]
-    \caption{Interpolazione lineare a 30'}
-    \label{fig:g_0_30}
+    \caption{Interpolaione lineare dati ottenuti con slitta scarica senza alluminio}
+    \label{fig:nm_na.png}
     \centering
-           \includegraphics[width=15cm]{30primi.png}
+           \includegraphics[width=15cm]{nm_na.png}
 \end{figure}
-
 \begin{figure}[h]
-    \caption{Interpolazione lineare a 45'}
-    \label{fig:g_0_45}
+    \caption{Interpolaione lineare dati ottenuti con slitta scarica e alluminio}
+    \label{fig:nm_sa.png}
     \centering
-           \includegraphics[width=15cm]{45primi.png}
+           \includegraphics[width=15cm]{nm_sa.png}
 \end{figure}
-
 \begin{figure}[h]
-    \caption{Interpolazione lineare a 45' con massa}
-    \label{fig:g_0_p45}
+    \caption{Interpolaione lineare dati ottenuti con slitta carica senza alluminio}
+    \label{fig:sm_na.png}
     \centering
-           \includegraphics[width=15cm]{45primi_p.png}
+           \includegraphics[width=15cm]{sm_na.png}
 \end{figure}
-
-\begin{table}[h!]
-\begin{tabular}{c|c|c|c}
-    \toprule
-    Tempi Intermedi & $\sigma_t$ & Velocità Istantanee & $\sigma_v$ \\
-    {[}s{]} & [s] & [m/s] & [m/s]\\
-    \midrule
-    0.321 & 0.001 & 0.155734 & 0.0009 \\
-    0.91695 & 0.001 & 0.181931 & 0.001 \\
-    1.442 & 0.002 & 0.199704 & 0.001 \\
-    1.917 & 0.004 & 0.221907 & 0.002 \\
-    2.3505 & 0.005 & 0.241103 & 0.003 \\
-    2.751 & 0.004 & 0.258558 & 0.003 \\
-    3.130 & 0.003 & 0.269571 & 0.002 \\ 
-    \bottomrule
-\end{tabular}
-\label{tab:15primi}
-\end{table}
-
-\begin{table}[h!]
-\begin{tabular}{c|c|c|c}
-    \toprule
-    Tempi Intermedi & $\sigma_t$ & Velocità Istantanee & $\sigma_v$ \\
-    {[}s{]} & [s] & [m/s] & [m/s]\\
-    \midrule
-    0.2264 & 0.0003 & 0.220829 & 0.001 \\
-    0.6481 & 0.0008 & 0.256003 & 0.001 \\
-    1.017 & 0.001 & 0.286895 & 0.001 \\
-    1.352 & 0.001 & 0.311313 & 0.002 \\
-    1.657 & 0.001 & 0.34638 & 0.002 \\
-    1.941 & 0.001 & 0.358141 & 0.002 \\
-    2.209 & 0.001 & 0.388893 & 0.003 \\
-    \bottomrule
-\end{tabular}
-\label{tab:30primi}
-\end{table}
-
-\begin{table}[h!]
-\begin{tabular}{c|c|c|c}
-    \toprule
-    Tempi Intermedi & $\sigma_t$ & Velocità Istantanee & $\sigma_v$ \\
-    {[}s{]} & [s] & [m/s] & [m/s]\\
-    \midrule
-    0.18485 & 0.0002 & 0.27049 & 0.001 \\
-    0.52946 & 0.0005 & 0.312969 & 0.001 \\ 
-    0.83239 & 0.0007 & 0.349235 & 0.002 \\ 
-    1.10599 & 0.0007 & 0.383347 & 0.002 \\ 
-    1.35709 & 0.0008 & 0.414353 & 0.002 \\
-    1.5902 & 0.0008 & 0.444682 & 0.003 \\
-    1.808 & 0.001 & 0.473261 & 0.003 \\
-    \bottomrule
-\end{tabular}
-\label{tab:45primi}
-\end{table}
-
-\begin{table}[h!]
-\begin{tabular}{c|c|c|c}
-    \toprule
-    Tempi Intermedi & $\sigma_t$ & Velocità Istantanee & $\sigma_v$ \\
-    {[}s{]} & [s] & [m/s] & [m/s]\\
-    \midrule
-    0.18646 & 9,70E+00 & 0.268154 & 0.001 \\
-    0.53221 & 0.000305614 & 0.313893 & 0.001 \\
-    0.83488 & 0.00034 & 0.348724 & 0.002 \\
-    1.10861 & 0.000614166 & 0.383583 & 0.002 \\
-    135.883 & 0.000738647 & 0.417119 & 0.002 \\
-    1.59062 & 0.000476025 & 0.446748 & 0.002 \\
-    1.80721 & 0.00060663 & 0.477692 & 0.003 \\
-    \bottomrule
-\end{tabular}
-\label{tab:45primi_p}
-\end{table}
 
 
 \end{document}*
+
+2.915*e-5 rad
