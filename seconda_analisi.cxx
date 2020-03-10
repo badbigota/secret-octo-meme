@@ -22,7 +22,7 @@ struct contenitore_statistico
 
 int main()
 {
-    cout<<"ATTENZIONE< ASSICURATI DI AVER CANCELLATO IL CONTENUTO DI ../Stat2/file_errori.txt altimenti si agginguno continuamente righe"<<endl;
+    cout << "ATTENZIONE< ASSICURATI DI AVER CANCELLATO IL CONTENUTO DI ../Stat2/file_errori.txt altimenti si agginguno continuamente righe" << endl;
     string angolo = "../Dati/SecondaParte/";
     string prefix; //modifica se vuoi cambiare il set di dati
     cout << "Inserisci prefisso file (nm_na_ nm_sa_ sm_na_): ";
@@ -32,7 +32,7 @@ int main()
     vector<contenitore_statistico> tempi(numero_intervalli);      //storage di tutte le info dei tempi dai file a stessa angolazione
     vector<contenitore_statistico> intervalli(numero_intervalli); //storage intervalli di tempo per ciascuno spazio e di velocita con relativi errori
     double spazio = 0.2;                                          //spazio fra due rilevatori
-    double dstd_spazio = 0.001 / sqrt(6);                         //sigma spazio
+    double dstd_spazio = 0.001 / (2 * sqrt(6));                   //sigma spazio con ptl 1mm e deltax 0.5mm
 
     for (int i = 0; i < numero_intervalli; i++)
     {
@@ -55,9 +55,7 @@ int main()
         tempi[i].dstd_tempo = dstd(temp_time);
         tempi[i].dstd_tempo_media = dstd_media(temp_time);
         tempi[i].media_vel = spazio / tempi[i].media_tempo;
-        tempi[i].dstd_vel =sqrt((2*(1/pow(tempi[i].media_tempo,2))*pow(dstd_spazio,2))+(pow(0.2,2)*(1/pow(tempi[i].media_tempo,4))*(pow(tempi[i].dstd_tempo_media,2))));
-
-  
+        tempi[i].dstd_vel = sqrt((2 * (1 / pow(tempi[i].media_tempo, 2)) * pow(dstd_spazio, 2)) + (pow(0.2, 2) * (1 / pow(tempi[i].media_tempo, 4)) * (pow(tempi[i].dstd_tempo_media, 2))));
     }
 
     ofstream fdati("../Stat2/dati_grafico_" + prefix + ".txt");
@@ -76,6 +74,7 @@ int main()
 
     vector<double> posizione_x;
     vector<double> vel_y;
+    vector<double> errori_perce;
 
     //stampare dati per grafico
     cout << "DATI PER GRAFICO CON ERRORI VERTICALI" << endl;
@@ -83,11 +82,13 @@ int main()
     {
         posizione_x.push_back(d.posizione_intermedia);
         vel_y.push_back(d.media_vel);
+        errori_perce.push_back((d.dstd_vel / d.media_vel) * 100);
         cout << d.posizione_intermedia << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
         fdati << d.posizione_intermedia << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
     }
 
     //stampare risultato chi quadro
+    cout << "MEDIA PERCETUALE DI ERRORI: " << media(errori_perce) << endl;
     cout << "ERRORI DI CHI QUADRO" << endl;
     cout << "A_intercetta: " << a_intercetta(posizione_x, vel_y) << "\tSIGMA_A: " << sigma_a(posizione_x, vel_y) << endl;
     cout << "B_Angolare: " << b_angolare(posizione_x, vel_y) << "\tSIGMA_B: " << sigma_b(posizione_x, vel_y) << endl;
@@ -98,5 +99,4 @@ int main()
     ofstream error_file;
     error_file.open("../Stat2/file_errori.txt", std::ios_base::app);
     error_file << b_angolare(posizione_x, vel_y) << "\t" << sigma_b(posizione_x, vel_y) << endl;
-
 }
