@@ -30,7 +30,7 @@ int main()
     vector<contenitore_statistico> tempi(numero_intervalli);      //storage di tutte le info dei tempi dai file a stessa angolazione
     vector<contenitore_statistico> intervalli(numero_intervalli); //storage intervalli di tempo per ciascuno spazio e di velocita con relativi errori
     double spazio = 0.1;                                          //spazio fra due rilevatori
-    double dstd_spazio = 0.001 / sqrt(6);                         //da distribuz triangolare
+    double dstd_spazio = 0.001 / (2 * sqrt(6));                   //da distribuz triangolare dove ptl 1mm e deltax 0.5mm
 
     for (int i = 0; i < numero_intervalli; i++)
     {
