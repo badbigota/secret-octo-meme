@@ -9,21 +9,21 @@ double prop_g_0(double a, double sigma_a_x, double alfa, double sigma_alfa);
 double prop_delta_g(double angolo, double sigma_angolo, double v_med, double sigma_v_med, double gamma, double sigma_gamma);
 double prop_g(double a_x, double sigma_a_x, double angolo, double sigma_angolo, double lambda, double sigma_lambda, double v_x, double sigma_v_x);
 
-
 int main()
 {
 	vector<double> vel;
 	vector<double> err_vel;
 	double v_med, sigma_v_med, delta_g, sigma_delta_g, angolo, sigma_gamma, sigma_gamma_massa, gamma, gamma_massa, sigma_angolo, g_0, sigma_g_0, g, sigma_g, a_x, sigma_a_x;
 	string fwrite, fread;
-	sigma_angolo = 3.029e-05; //da calibrazione iniziale
+	sigma_angolo = 3.029e-05;									 //da calibrazione iniziale
+	sigma_angolo = sigma_angolo + M_PI / (38880 * 2 * sqrt(24)); //aggiungi err dist triang
 	double g_pd = 9.801;
 	double sigma_g_pd = 0.001;
 
 	cout << "Inserire il postfisso di lettura, stat__.txt ";
 	cin >> fread;
 
-	ifstream fin("../Stat/stat" + fread + ".txt");
+	ifstream fin("../Stat/PerLatex/stat" + fread + "__con_colonna_inizio_e_fine_.txt");
 	if (!fin)
 	{
 		cout << "Errore lettura file";
@@ -35,12 +35,12 @@ int main()
 
 	while (fin >> t)
 	{
-		if (index == 1)
+		if (index == 4)
 		{
 			vel.push_back(t);
 			index++;
 		}
-		if (index == 2)
+		if (index == 5)
 		{
 			err_vel.push_back(t);
 			index = 0;
@@ -49,7 +49,7 @@ int main()
 			index++;
 	}
 
-	v_med = (vel[0] + vel[6]) / 2.;										 //calclolo velocità media (v[40-50]+v[100-110]/2)
+	v_med = (vel[0] + vel[6]) / 2.;											 //calclolo velocità media (v[40-50]+v[100-110]/2)
 	sigma_v_med = (1 / 2) * (sqrt(pow(err_vel[0], 2) + pow(err_vel[6], 2))); //calcolo errore su v_med con propagazione
 
 	//media ponderata
@@ -70,9 +70,11 @@ int main()
 		sigma_delta_g = prop_delta_g(angolo, sigma_angolo, v_med, sigma_v_med, gamma, sigma_gamma);
 		g = g_0 + delta_g;
 		sigma_g = prop_g(a_x, sigma_a_x, angolo, sigma_angolo, gamma, sigma_gamma, v_med, sigma_v_med);
-		cout << "Delta g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
+		cout << "g_0:\t" << g_0 << "+/-" << sigma_g_0 << endl;
+		cout << "d_g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
 		cout << "g=g_0+delta_g:\t" << g << "+/-" << sigma_g << endl;
-		cout << "Compatibilita con g_pd::\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g_0:\t" << comp_3(g_0, g_pd, sigma_g_0, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g:\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
 	}
 	if (fread == "30")
 	{
@@ -85,9 +87,11 @@ int main()
 		sigma_delta_g = prop_delta_g(angolo, sigma_angolo, v_med, sigma_v_med, gamma, sigma_gamma);
 		g = g_0 + delta_g;
 		sigma_g = prop_g(a_x, sigma_a_x, angolo, sigma_angolo, gamma, sigma_gamma, v_med, sigma_v_med);
-		cout << "Delta g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
+		cout << "g_0:\t" << g_0 << "+/-" << sigma_g_0 << endl;
+		cout << "d_g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
 		cout << "g=g_0+delta_g:\t" << g << "+/-" << sigma_g << endl;
-		cout << "Compatibilita con g_pd::\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g_0:\t" << comp_3(g_0, g_pd, sigma_g_0, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g:\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
 	}
 	if (fread == "45")
 	{
@@ -100,12 +104,14 @@ int main()
 		sigma_delta_g = prop_delta_g(angolo, sigma_angolo, v_med, sigma_v_med, gamma, sigma_gamma);
 		g = g_0 + delta_g;
 		sigma_g = prop_g(a_x, sigma_a_x, angolo, sigma_angolo, gamma, sigma_gamma, v_med, sigma_v_med);
-		cout << "Delta g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
+		cout << "g_0:\t" << g_0 << "+/-" << sigma_g_0 << endl;
+		cout << "d_g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
 		cout << "g=g_0+delta_g:\t" << g << "+/-" << sigma_g << endl;
-		cout << "Compatibilita con g_pd::\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g_0:\t" << comp_3(g_0, g_pd, sigma_g_0, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g:\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
 	}
 
-	if (fread == "45p")
+	if (fread == "d45")
 	{
 		angolo = 0.75;
 		a_x = 0.128128;
@@ -116,13 +122,14 @@ int main()
 		sigma_delta_g = prop_delta_g(angolo, sigma_angolo, v_med, sigma_v_med, gamma, sigma_gamma);
 		g = g_0 + delta_g;
 		sigma_g = prop_g(a_x, sigma_a_x, angolo, sigma_angolo, gamma, sigma_gamma, v_med, sigma_v_med);
-		cout << "Delta g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
+		cout << "g_0:\t" << g_0 << "+/-" << sigma_g_0 << endl;
+		cout << "d_g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
 		cout << "g=g_0+delta_g:\t" << g << "+/-" << sigma_g << endl;
-		cout << "Compatibilita con g_pd::\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g_0:\t" << comp_3(g_0, g_pd, sigma_g_0, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g:\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
 	}
 	return 0;
 }
-
 
 double prop_delta_g(double angolo, double sigma_angolo, double v_med, double sigma_v_med, double gamma, double sigma_gamma)
 {
