@@ -29,6 +29,7 @@
 
 \graphicspath{{Figure/}}
 
+
 \begin{document}
 \input{Front-matter/Frontespizio}
 
@@ -67,7 +68,7 @@ Per lo svolgimento dell'esperienza si è fatto uso di:
 \section{Metodo}
 \subsection{Orizzontalità della guida}
 La fase preliminare dell'esperienza prevede di determinare l'orizzontalità della guida tramite misurazioni dirette. La procedura impiegata consiste nel verificare se la slitta rimane stabile in 3 punti differenti, a 40 \si{cm}, 80 \si{cm} e 110 \si{cm} dall'origine della guida.\\
-In primo luogo si è proceduto con l'accensione del soffiatore, impostato per tutta l'esperienza alla stessa potenza, per poi posizionare la slitta nel primo punto, a 40cm. Si è poi regolata la vite affinché la slitta rimanesse stabile al fine di poter fissare un sistema di riferimento con il quale testare l'orizzontalità sugli altri due punti. Lasciando invariato il sistema di riferimento sono stati annotati i valori sulla vite per i quali, nel secondo  e nel terzo punto, la slitta rimane stabile.\\
+In primo luogo si è proceduto con l'accensione del soffiatore, impostato per tutta l'esperienza alla stessa potenza, per poi posizionare la slitta nel primo punto, a 40cm. Si è poi regolata la vite affinché la slitta rimanesse stabile al fine di poter fissare un sistema di riferimento con il quale testare l'orizzontalità sugli altri due punti. Lasciando invariato il sistema di riferimento sono stati annotati i valori sulla vite per i quali, nel secondo e nel terzo punto, la slitta rimane stabile.\\
 Ipotizzando l'imprecisione delle misure precedentemente effettuate si è ripetuto il procedimento e si è verificato che per il secondo e per il terzo punto il risultato rimaneva invariato, invece per il primo punto si è misurato un nuovo valore. Data l'ipotesi, si è calcolata la media e la deviazione standard della media su queste ultime 3 misure effettuate.\\
 La seguente tabella riporta i dati ottenuti:
 
@@ -87,11 +88,10 @@ La seguente tabella riporta i dati ottenuti:
 Si è poi è assunto come zero del nuovo sistema di riferimento, la media delle misure $\overline{\alpha} \pm \sigma_{\overline{\alpha}}$, settando la ghiera.\\
 
 \subsection{Presa dati prima esperienza}
-Fissato il sistema di riferimento si è impostata la guida ad un'inclinazione di $15'$ ruotando 3 volte la vite, in quanto ciascun giro corrisponde ad una variazione  di $5'$.\\
-
+Fissato il sistema di riferimento si è impostata la guida ad un'inclinazione di $15'$ ruotando 3 volte la vite, in quanto ciascun giro corrisponde ad una variazione di $5'$.\\
 Si sono posizionati i traguardi, inizialmente a 40cm e 50cm e, successivamente, lasciando invariata la posizione del primo, si è spostato solo il secondo di 10cm per volta fino ad arrivare a 110cm. \\
 Per ciascun intervallo di spazio ([40cm,50cm], [40cm,60cm], \dots [40cm,110cm]) si sono prese 5 misure ripetute di intervalli di tempo, ognuna delle quali rappresentava il tempo impiegato dalla slitta per percorrere il relativo spazio.\\  
-Il cronometro è stato impostato per entrambe le esperienze alla sensibilità di $S=\num{1e4} \si{s^{-1}}$, in modo da rendere più accurata la successiva analisi.\\
+Il cronometro è stato impostato per entrambe le esperienze alla sensibilità di $S = \num{1e4} \si{s^{-1}}$, in modo da rendere più accurata la successiva analisi.\\
 Si è ripetuta la medesima operazione di presa dati variando l'inclinazione della slitta a 30' e successivamente a 45'.
 Infine, operando sempre sulla slitta inclinata di 45', si è caricata la slitta con un disco di ottone al fine di incrementarne la massa.
 
@@ -103,7 +103,7 @@ Si è poi ripetuto il procedimento e la conseguente presa dati, una volta con la
 \section{Analisi dati}
 \subsection{Prima esperienza}
 Si sono dapprima analizzate le misurazioni relative alla guida inclinata di 15' seguendo il procedimento riportato in seguito.\\
-Per ciascun intervallo di spazio ([40cm, 50cm], [40cm, 60cm], \dots [40cm, 110cm]) si è calcolata  la media $\overline{t}$, il suo relativo errore $\sigma_{\overline{t}}$ e la deviazione standard $\sigma$. Inoltre si sono calcolate le semisomme dei tempi medi tra coppie di intervalli consecutivi, ai quali d'ora in avanti si farà riferimento con il termine \textit{tempi intermedi}, e gli errori ad essi associati tramite la formula di propagazione degli errori (\ref{eq:}).
+Per ciascun intervallo di spazio ([40cm, 50cm], [40cm, 60cm], \dots [40cm, 110cm]) si è calcolata la media $\overline{t}$, il suo relativo errore $\sigma_{\overline{t}}$ e la deviazione standard $\sigma$. Inoltre si sono calcolate le semisomme dei tempi medi tra coppie di intervalli consecutivi, ai quali d'ora in avanti si farà riferimento con il termine \textit{tempi intermedi}, e gli errori ad essi associati tramite la formula di propagazione degli errori (\ref{eq:prop_errori}).
 I dati ottenuti sono riportati nella Tabella \ref{tab:15_primi}.
 
 \begin{figure}[h!]
@@ -191,24 +191,20 @@ assumendo come valori di $x_i$ tutti i possibili estremi degli intervalli consid
 \newpage
 Utilizzando la formula di propagazione degli errori si è poi calcolato l'errore casuale della velocità media per ogni intervallo, assumendo come errore sul tempo la deviazione standard della media di ciascun intervallo precedentemente calcolato, e come errore sullo spazio la deviazione standard relativa alla distribuzione triangolare, utilizzando le seguenti:
 
-\begin{equation*}%Distrib triang
-\sigma_{x}=\frac{\mathopen|2\Delta x\mathclose|}{\sqrt{24}} 
-\end{equation*}
-
-\begin{equation*}
+\begin{gather*}
+\sigma_{x}=\frac{\mathopen|2\Delta x\mathclose|}{\sqrt{24}} \\
 \label{eq:propagazione_velocità}
     \sigma_{v}= \sqrt{
    \left( {\frac{\partial v}{\partial x_{i}}} \Big|_{\ast}\right)^{2} \cdot \sigma_{x_{i}}^2  +   
    \left( {\frac{\partial v}{\partial x_{i+1}}}\Big|_{\ast}\right )^{2} \cdot \sigma_{x_{i+1}}^2   +   
    \left( {\frac{\partial v}{\partial t_{\left(40; x_{i+1}\right)}}}\Big|_{\ast}\right)^{2}  \cdot \sigma_{t_{\left(40; x_{i+1}\right)}}^2 +   
        \left( {\frac{\partial v}{\partial t_{\left(40; x_i\right)}}}\Big|_{\ast}\right)^{2} \cdot  \sigma_{t_{\left(40; x_i\right)}}^2
-    }
-\end{equation*}
+    }\\
+    \text{Dove $2\Delta x$ è la più piccola tacca di misura leggibile dall'operatore sulla stecca metrica.}
+\end{gather*}
 
-Dove $2\Delta x$ è la più piccola tacca di misura leggibile dall'operatore sulla stecca metrica.\\
 Le coppie $(t_{intermedio}, v_{media})$ precedentemente calcolate sono state utilizzate come coordinate di punti su un piano cartesiano, e si è ricercata una loro interpolazione lineare sfruttando il metodo del minimo ${\chi}^2$, ottenendo il coefficiente angolare $b$, corrispondente alla componente dell'accelerazione di gravità $g_{0}$ sulla parallela alla guidovia, e l'intercetta della retta cercata, corrispondente alla velocità della slitta nella posizione iniziale, 40cm.\\
-Per stimare $g_{0}$ è stato sufficiente dividere il coefficiente angolare della retta per il seno dell'angolo di inclinazione della guida.
-Per il computo di $ \sigma_{g_{0}}$ si è scelto di calcolare l'errore relativo all'angolo propagando gli errori dell'orizzontalità (Tabella \ref{tab:guida_orizzontale}) e l'errore derivante dalla distribuzione triangolare per l'incertezza del posizionamento a 15', il valore ottenuto risulta essere $0.1'$. L'errore relativo a $\sigma_b$  si è ricavato invece dal metodo del minimo ${\chi}^2$ per poi propagare $\sigma_b$ e $\sigma_{\alpha}$ tramite la formula \ref{}. Si è proceduto infine con il calcolo della compatibilità $\lambda$ delle 4 stime dell'accelerazione di gravità $g_{0}$ relative ai 4 differenti campioni con $g_{PD}=(9.801\pm 0.001)\si{m/s^2}$ stimata a Padova. Si è fatto riferimento alle seguenti per valutare $\lambda$ e la sua bontà:
+Per stimare $g_{0}$ è stato sufficiente dividere il coefficiente angolare della retta per il seno dell'angolo di inclinazione della guida. Per il computo di $ \sigma_{g_{0}}$ si è scelto di calcolare l'errore relativo all'angolo propagando gli errori dell'orizzontalità (Tabella \ref{tab:guida_orizzontale}) e l'errore derivante dalla distribuzione triangolare per l'incertezza del posizionamento a 15', il valore ottenuto risulta essere $0.1'$. L'errore relativo a $\sigma_b$  si è ricavato invece dal metodo del minimo ${\chi}^2$ per poi propagare $\sigma_b$ e $\sigma_{\alpha}$ tramite la formula \ref{eq:prop_errori}. Si è proceduto infine con il calcolo della compatibilità $\lambda$ delle 4 stime dell'accelerazione di gravità $g_{0}$ relative ai 4 differenti campioni con $g_{PD}=(9.801\pm 0.001)\si{m/s^2}$ stimata a Padova. Si è fatto riferimento alle seguenti per valutare $\lambda$ e la sua bontà:
 \begin{equation*}%Comp
     \label{eq:cases}
     \begin{cases}
@@ -238,8 +234,6 @@ In seguito tutto il procedimento è stato ripetuto variando l'inclinazione della
 
 \bigskip
 In seguito vengono riportati i grafici affiancati dalle relative tabelle riguardanti le velocità calcolate:
-\bigskip
-\bigskip
 
 \begin{figure}[h!]
     \centering
@@ -407,7 +401,7 @@ $[\si{cm}]$&$[\si{s}]$&$[\si{s}]$&$[\si{s}]$\\
 \end{table}
 
 
-In seguito sono state calcolate le velocità medie di percorrenza $\overline{v}$ di ciascun tratto e il loro relativo errore tramite la formula di propagazione degli errori, assumendo come errore sullo spazio la deviazione standard relativa alla distribuzione triangolare, per le medesime motivazioni date nella prima esperienza.\\
+Sono state poi calcolate le velocità di percorrenza $\overline{v}$ di ciascun tratto e il loro errore con la formula di propagazione degli errori, assumendo come $\sigma_{x}$ quella ottenuta dalla distribuzione triangolare, per le stesse motivazioni date nella prima esperienza.\\
 
 
 \begin{figure}[h!]
@@ -496,7 +490,8 @@ dove $\gamma$ assume due valori differenti a seconda dei casi. Quando la slitta 
 \centering
 \begin{tabular}{c|c|c}
     \toprule
-        Campione & Coeff. ang. $\times 10^{-5} [\si{s^{-1}}]$ & $\gamma \times 10^{-5} [\si{s^{-1}}]$\\
+        Campione & Coeff. ang. & $\gamma$\\
+        & $\times 10^{-5} [\si{s^{-1}}]$& $\times 10^{-5} [\si{s^{-1}}]$\\
     \midrule
         No m., No All. &  $-6 \pm 1$ & \\ 
         No m., Sì All. & $-2 \pm 4$ & \multirow{-2}{*}{   $6 \pm 1$} \\
@@ -537,24 +532,40 @@ In ultima fase si è calcolato $g=g_0 + \Delta g$ propagando il relativo errore 
     \toprule
     & \textbf{15'} & \textbf{30'} & \textbf{45'} & \textbf{45' con Massa}\\
     \midrule
-        \textbf{Gravità $[\si{m/s^2}]$}       & 9.4\pm0.2$ & $9.5\pm0.2$ & $9.51\pm0.06$ & $9.7\pm0.1$ \\
-      \textbf{Compatibilità $\lambda$} &1.7& 0.75& 4.3 & 0.09 $\\
+        \textbf{Gravità [\si{m/s^2}]}       & $9.4\pm0.2$ & $9.5\pm0.2$ & $9.51\pm0.06$ & $9.7\pm0.1$ \\
+      \textbf{Compatibilità $\lambda$} &1.7& 0.75& 4.3 & 0.09 \\
         \bottomrule
     \end{tabular}
     \caption{Stime di gravità $g \pm \sigma_{g}$ (corretta con $\Delta g$) e relativa compatibilità $\lambda$ con $g_{PD}$}
     \label{tab:stima_b_g}
 \end{table}
 
+\begin{table}[h!]
+\centering
+    \begin{tabular}{c|c|c}
+        \toprule
+        $\alpha_{1}$& $\alpha_{2}$  & $\lambda$\\
+        \midrule
+        15'  &30'   &0.37\\
+        15'  &45'   &0.26\\
+        15'  &45' Carica &0.88\\
+        30'  &45'   &0.25\\
+        30'  &45' Carica &0.67\\
+        45'  &45' Carica &2.1\\
+        \bottomrule
+    \end{tabular}
+    \caption{Compatibilità tra le stime di $g$}
+    \label{tab:compatibilita_d}
+\end{table}
+Si è infine calcolata la compatibilità $\lambda$ fra le varie stime di $g$ come viene riportato in Tabella \ref{tab:compatibilita_d}.
+
 \section{Discussione dei risultati}
-\subsection{Prima parte}
-Una prima analisi delle deviazioni standard ottenute posizionando la guidovia a 15' evidenzia un andamento piuttosto crescente delle stesse fino all'intervallo [40cm-80cm], per poi subire una drastica diminuzione nell'intervallo [40cm-100cm] e, conseguentemente aumentare nuovamente. Tale comportamento lo si osserva anche negli altri 3 campioni. A questo punto dell'analisi non si è in grado di fornire una spiegazione al comportamento descritto.\\
+\subsection{Prima esperienza}
+Le premesse teoriche a base dell'esperienza concordano pienamente con l'andamento dei dati delle velocità medie di ogni intervallo di spazio di $10\si{cm}$. Infatti, il moto che compie la slitta è riconducibile ad un moto uniformemente accelerato e, in conseguenza di ciò, come le evidenze sperimentali dimostrano, le velocità al trascorrere del tempo aumentano. L'espressione che determina matematicamente l'andamento della slitta, assumendo che essa stia compiendo un moto uniformemente accelerato, è $v=v_{0}+a\cdot t$. L'andamento di tale funzione è lineare, e ciò permette di considerare la velocità media di ogni intervallo di $0.1\si{m}$ come velocità istantanea nel tempo intermedio, consentendo di rappresentare graficamente le coppie di punti ($t_{intermedio}, v_{istantanea}$) con le relative barre d'errore sulle ordinate.\\
+Per il calcolo della deviazione standard delle velocità istantanee si è utilizzato, così come spiegato nell'analisi, la propagazione degli errori assumendo come errore casuale delle posizioni la deviazione standard derivante dalla distribuzione triangolare. Tale scelta è stata determinata dal fatto che si sta utilizzando una stecca metrica, strumento analogico in cui la percezione dell'occhio dell'operatore riesce a distinguere a quale tacca si avvicina di più il segno del traguardo. Essendo la più piccola tacca di misura pari ad un millimetro e il coefficiente affidabilità pari a 1, $\sigma_x$ nelle due posizioni è $\approx0.0001\si{m}$.\\
+Nel calcolo di $\sigma_v$ è stato opportuno operare una differenza tra il primo intervallo ed i successivi: nel primo intervallo, [40cm-50cm], infatti, facendo riferimento alla formula \ref{eq:propagazione_velocità}, si è assunto pari a zero il quarto termine della somma del radicando in quanto esso non è definito; per tutti gli altri casi la formula non ha subito variazioni.\\
+E' opportuna una considerazione sul termine di covarianza presente nella formula \ref{eq:prop_errori} utilizzata per il calcolo di $\sigma_v$. $cov(x_{i},x_{j})_{i \neq j}$  si è assunta pari a zero in quanto difficilmente calcolabile e ipotizzando che avrebbe di poco influenzato $\sigma_{v}$. Questa ipotesi è corroborata dal calcolo di $\sigma_{v, post}$ descritto dalla formula \ref{eq:y_posteriori}. Come viene verificato dal confronto dei $\sigma_{v, post}$ con i $\sigma_{v}$ riportati nelle tabelle \ref{tab:15_primi}, \ref{tab:30_primi}, \ref{tab:45_primi} e \ref{tab:d45_primi}. In particolare nell'assetto a 15' le prime tre $\sigma_{v}$ calcolate con la formula di propagazione degli errori risultano essere minori rispetto a $\sigma_{v, post}$. Dalla quarta alla settima esse risultano invece maggiori. La stessa situazione si ripresenta anche nel campione di 45' con slitta carica.
 
-Le premesse teoriche a base dell'esperienza concordano pienamente con i dati delle velocità medie di ogni intervallo di spazio di 10\si{cm}. Infatti, il moto che compie la slitta è riconducibile ad un moto uniformemente accelerato e, in conseguenza di ciò, come le evidenze sperimentali dimostrano, le velocità al trascorrere del tempo aumentano. L'espressione che determina matematicamente l'andamento della slitta, assumendo che essa stia compiendo un moto uniformemente accelerato, è $v=v_{0}+a\cdot t$. L'andamento di tale funzione è lineare, e ciò permette di considerare la velocità media di ogni intervallo di 0.1\si{m} come velocità istantanea nel tempo intermedio, consentendo di rappresentare graficamente le coppie di punti ($t_{intermedio}, v_{istantanea}$) con  le relative barre d'errore sulle ordinate.\\
-
-Per il calcolo della deviazione standard delle velocità istantanee si è utilizzato, così come spiegato nell'analisi, la propagazione degli errori assumendo come errore casuale delle posizioni la deviazione standard derivante dalla distribuzione triangolare. Tale scelta è stata determinata dal fatto che si sta utilizzando una stecca metrica, strumento analogico in cui la percezione dell'occhio dell'operatore riesce a distinguere a quale tacca si avvicina di più il segno del traguardo. Essendo la più piccola tacca di misura pari ad un millimetro e il coefficiente affidabilità pari a 1, $\sigma_x$ nelle due posizioni è $\approx0.0004\si{m}$.\\
-Nel calcolo di $\sigma_v$ è stato opportuno operare una differenza tra il primo intervallo ed i successivi: nel primo intervallo, [40cm-50cm], infatti, facendo riferimento alla formula \ref{eq:propagazione_velocità}, si è assunto pari a zero il quarto termine della somma del radicando in quanto esso non è definito; per tutti gli altri casi la formula non ha subito variazioni.
-
-E' opportuna una considerazione sul termine di covarianza presente nella formula \ref{eq:teorema_varianze} utilizzata per il calcolo di $\sigma_v$. $cov(x_{i},x_{j})_{i \neq j}$  si è assunta pari a zero in quanto difficilmente calcolabile e ipotizzando che avrebbe di poco influenzato $\sigma_{v}$. Questa ipotesi è corroborata dal calcolo di $\sigma_{v, post}$ descritto dalla formula \ref{eq:y_posteriori}. Come viene verificato dal confronto dei $\sigma_{v, post}$ con i $\sigma_{v}$ riportati nelle tabelle \ref{tab:15_primi}, \ref{tab:30_primi}, \ref{tab:45_primi} e \ref{tab:d45_primi}. In particolare nell'assetto a 15' le prime tre $\sigma_{v}$ calcolate con il teorema delle varianze risultano essere minori rispetto a $\sigma_{v, post}$. Dalla quarta alla settima esse risultano invece maggiori. La stessa situazione si ripresenta anche nel campione di 45' con slitta carica.
 \begin{wraptable}{l}{5cm}%Sigma a posteriori
 \centering
     \begin{tabular}{c|c}
@@ -571,17 +582,16 @@ E' opportuna una considerazione sul termine di covarianza presente nella formula
     \caption{Calcolo $\sigma_{v, post}$}
     \label{tab:v_post}
 \end{wraptable}
-
 Questo comportamento è ciò che effettivamente ci si aspetta teoricamente, infatti, nelle misurazioni degli ultimi intervalli il tempo di esposizione della slitta a fattori influenzanti, quali l'attrito dell'aria o perturbazioni degli strumenti utilizzati, è maggiore rispetto alle misurazioni dei primi intervalli. Nel campione di 30' invece, le stime di $\sigma_{v}$ risultano essere sempre minori della stima a posteriori e a 45' invece sempre maggiori. Non si possono compiere altre inferenze su questo comportamento in quanto si necessita del termine di covarianza. In tutti i casi sopra esposti $\sigma_{v}$ e $\sigma_{v, post}$ si differenziano solamente per un termine di circa $10^{-4}\si{m/s}$ e ciò giustifica pienamente l'assunzione del termine di covarianza pari a zero.\\
-Come riportato nell'analisi, si è utilizzato il metodo del minimo  ${\chi}^2$ per il calcolo della retta interpolante le coppie di dati a disposizione, ovvero velocità istantanea e tempo. Bisogna però precisare che si è assunta come grandezza da utilizzare sull'asse ascisse il tempo mentre per quella delle ordinate la velocità, in quanto affetta da errore casuale maggiore. Bisogna tener presente che nel metodo del minimo ${\chi}^{2}$ l'errore inevitabilmente presente nell'asse delle ascisse è stato assunto pari a zero, in quanto la sua considerazione avrebbe complicato il calcolo dell'interpolazione lineare. \\
-Tenendo conto di tutte le considerazioni precedentemente effettuate, si sono calcolate le compatibilità delle stime di $g_0$ di tutti e 4 i campioni con l'accelerazione di gravità a Padova e si sono esposti i valori calcolati nella tabella \ref{tab:stima_b_g}. Si è riscontrato che la stima ottenuta dal terzo campione, ovvero con la guida inclinata di 45',risulta non compatibile; il primo campione invece di compatibilità discreta; il secondo ed il quarto campione invece risultano avere una compatibilità ottima.\\
-La stima di $g_0$ effettuata con la slitta carica, con un inclinazione della guida a 45' è però più prossima a quella di Padova, in conclusione si ha che
+Come riportato nell'analisi, si è utilizzato il metodo del minimo ${\chi}^2$ per il calcolo della retta interpolante le coppie di dati a disposizione, ovvero velocità istantanea e tempo. Bisogna però precisare che si è assunta come grandezza da utilizzare sull'asse ascisse il tempo mentre per quella sulle ordinate la velocità, in quanto affetta da errore casuale maggiore. Bisogna tener presente che nel metodo del minimo ${\chi}^{2}$ l'errore inevitabilmente presente nell'asse delle ascisse è stato assunto pari a zero, in quanto la sua considerazione avrebbe complicato il calcolo dell'interpolazione lineare.\\
+Tenendo conto di tutte le considerazioni precedentemente effettuate, si sono calcolate le compatibilità delle stime di $g_0$ di tutti e 4 i campioni con l'accelerazione di gravità a Padova e si sono esposti i valori calcolati nella tabella \ref{tab:stima_b_g}. Si è riscontrato che la stima ottenuta dal terzo campione, ovvero con la guida inclinata di 45', risulta non compatibile; il primo campione invece ha compatibilità discreta; il secondo ed il quarto campione invece risultano avere una compatibilità ottima.\\
+La compatibilità ottima del secondo campione è riconducibile al fatto che l'errore associato a $g_0$ abbia dimensioni considerevoli, ciò suggerisce quindi che la stima di $g_0$ effettuata con la slitta carica, con un inclinazione della guida a 45' è più prossima a quella di Padova. In conclusione si ha che
 \begin{equation*}
-    g_0\pm\sigma_{g_0}=\left ( 9.7 \pm 0.1 \right ) m/s^{2}
+    g_0\pm\sigma_{g_0}= \left(9.7\pm0.1 \right) \si{m/s^{2}}
 \end{equation*}
 
-\subsection{Seconda parte}
-Dopo il calcolo delle medie e deviazioni standard associate alle misurazioni sperimentali, e al conseguente calcolo delle velocità medie di percorrenza, si è proceduto con il calcolo delle deviazioni standard ad esse associate. Si è scelto di calcolare $\sigma_{v}$ utilizzando la formula di propagazione degli errori, ipotizzando che $\Delta t$ e $\Delta s$ fossero statisticamente  indipendenti e di conseguenza, non analizzare il termine di covarianza. Tale ipotesi risulta essere avvalorata, ma non confermata dal calcolo di $\sigma_{v post}$. Infatti i due errori risultano essere molto simili come si deduce dalla tabella \ref{tab:v_post_delta_g}.
+\subsection{Seconda esperienza}
+Dopo il calcolo delle medie e deviazioni standard associate alle misurazioni sperimentali, e al conseguente calcolo delle velocità medie di percorrenza, si è proceduto con il calcolo delle deviazioni standard ad esse associate. Si è scelto di calcolare $\sigma_{v}$ utilizzando la formula di propagazione degli errori, ipotizzando che $\Delta t$ e $\Delta s$ fossero statisticamente indipendenti e di conseguenza non analizzare il termine di covarianza. Tale ipotesi risulta essere avvalorata, ma non confermata, dal calcolo di $\sigma_{v post}$. Infatti i due errori risultano essere molto simili come si deduce dalla tabella \ref{tab:v_post_delta_g}.
 
 \begin{wraptable}{l}{5cm}%Sigma a posteriori
 \centering
@@ -598,50 +608,70 @@ Dopo il calcolo delle medie e deviazioni standard associate alle misurazioni spe
     \caption{Calcolo $\sigma_{v, post}$}
     \label{tab:v_post_delta_g}
 \end{wraptable}
+Per usare il metodo del ${\chi}^{2}$ si sono confrontati gli errori relativi alle due grandezze prese in considerazione: la posizione sulla guidovia e la velocità media in ciascun tratto. Si è riscontrato che gli errori sulla posizione risultano molto minori rispetto a quelli sulla velocità, giustificando l'utilizzo sull'asse delle $x$ la posizione e sull'asse delle $y$ la velocità ed inoltre di assumere pari a zero l'errore sulle ascisse per l'interpolazione lineare.\\
+L'utilizzo del metodo del minimo ${\chi}^{2}$ per il calcolo dei coefficienti angolari, ha rivelato che essi risultano essere negativi, come il modello teorico suggerisce. Infatti in questa esperienza non si è inclinata la guida, dunque l'accelerazione di gravità non influenzava il moto della slitta -- nell'ipotesi della piena orizzontalità -- pertanto il moto del corpo risulta essere influenzato solamente dall'attrito viscoso dell'aria. Ciò comporta una diminuzione della velocità come si deduce anche dai grafici.\\
+Si osserva però che tra i coefficienti angolari esiste una sostanziale differenza. Dapprima si può osservare che la massa influenza di molto il comportamento della slitta. Si ipotizza infatti che il nuovo assetto riduca l'efficienza del cuscinetto d'aria creatosi sotto la stessa grazie al compressore, e che comporti una diminuzione della velocità a causa dell'episodico attrito radente generatosi tra la slitta e la guida. In seguito si osserva una differenza sostanziale tra i due campioni analizzati con la slitta scarica. Il secondo presenta un errore relativamente grande rispetto al primo, e confrontando il dato con il grafico \ref{fig:nm_sa.png}, si ipotizzano imprecisioni durante la presa dati. Il calcolo della media ponderata dei coefficienti angolari ha in parte risolto questa incongruenza. Si sono ottenuti due valori di $\gamma$, riportati nella tabella \ref{tab:stime_di_gamma}.\\
+Un confronto dei tre grafici \ref{fig:nm_na.png}, \ref{fig:nm_sa.png}, \ref{fig:sm_na.png} rivela un comportamento pressoché costane relativo alla velocità in funzione della posizione: nell'intervallo tra 50 \si{cm} e 70\si{cm} si osserva che le velocità diminuiscono maggiormente rispetto a quanto stimato dalla retta interpolante, mentre nell'intervallo da 70 \si{cm} a 90\si{cm} subiscono una diminuzione minore di quanto ci si aspetti. Questa evidenza, riproponendosi in tutti i grafici suggerisce un'imperfezione sulla geometria della guida. Si pensa che in corrispondenza del primo tratto la guidovia sia leggermente in salita mentre nel secondo leggermente in discesa.\\
+Come riportato nell'analisi è stato calcolato $\Delta g$ ed è stato sommato a $g_0$ per compensare l'attrito dell'aria, al fine di stimare in modo più preciso $g$. L'errore relativo a $g$, ovvero $\sigma_{g}$ è stato ottenuto con la formula di propagazione degli errori, in questo caso :
 
-Per usare il metodo del ${\chi}^{2}$ si sono confrontati gli errori relativi alle due grandezze prese in considerazione: la posizione sulla guidovia e la velocità media in ciascun tratto. Si è riscontrato che gli errori sulla posizione risultano molto minori rispetto a quelli sulla velocità, giustificando l'utilizzo sull'asse delle $x$ la posizione e sull'asse delle $y$ la velocità; inoltre di assumere per l'interpolazione pari a zero l'errore sulle ascisse.\\
-Per il calcolo dei coefficienti angolari si è utilizzato il metodo del minimo ${\chi}^{2}$, e come suggerisce la teoria essi risultano essere negativi. In questa esperienza non si è inclinata la guida, dunque l'accelerazione di gravità non influenzava il moto della slitta, nell'ipotesi della piena orizzontalità, dunque il moto del corpo risulta essere influenzato solamente da attrito viscoso dell'aria. Ciò comporta una diminuzione della velocità come si deduce anche dai grafici.\\
-Si osserva però che tra i coefficienti angolari esiste una sostanziale differenza. Dapprima si può osservare che la massa influenza di molto il comportamento della slitta. Si ipotizza infatti che il nuovo assetto della  slitta riduca l'efficienza del cuscinetto d'aria creatosi sotto la stessa grazie al compressore, e che comporti una diminuzione della velocità a causa dell'episodico attrito radente generatosi tra la slitta e la guida. In seguito si osserva una differenza sostanziale tra i due campioni analizzati con la slitta scarica. Il secondo presenta un errore relativamente grande rispetto al secondo, e confrontando il dato con il grafico \ref{fig:nm_sa.png}, si ipotizzano imprecisioni durante la presa dati. Il calcolo della media ponderata dei coefficienti angolari ha in parte risolto questa incongruenza. Si sono ottenuti due valori di $\gamma$, riportai nella tabella \ref{tab:stime_di_gamma}.\\
+\begin{equation*}
+      \sigma_{g}= \sqrt{
+   \left( {\frac{\partial g}{\partial b}} \Big|_{\ast}\right)^{2} \cdot \sigma_{b}^2  +   
+   \left( {\frac{\partial g}{\partial v_{med}}}\Big|_{\ast}\right )^{2} \cdot \sigma_{v_{med}}^2   +   
+   \left( {\frac{\partial g}{\partial \gamma}}\Big|_{\ast}\right)^{2}  \cdot \sigma_{\gamma}^2 +   
+    \left( {\frac{\partial g}{\partial \alpha}}\Big|_{\ast}\right)^{2} \cdot  \sigma_{\alpha}^2}
+\end{equation*}
 
-Un confronto dei tre grafici \ref{fig:nm_na.png}, \ref{fig:nm_sa.png}, \ref{fig:sm_na.png} rivela un comportamento pressoché costane relativo alla velocità in funzione della posizione:  nell'intervallo tra 50 \si{cm} e 70\si{cm} si osserva che le velocità diminuiscono maggiormente rispetto a quanto stimato dalla retta interpolante, mentre nell'intervallo da 70 \si{cm} a 90\si{cm} subiscono una diminuzione minore di quanto ci si aspetti. Questa evidenza, riproponendosi in tutti i grafici suggerisce un'imperfezione sulla geometria della guida. Si pensa che in corrispondenza del primo tratto la guidovia sia leggermente in salita mentre nel secondo leggermente in discesa.\\
-Come riportato nell'analisi è stato calcolato $\Delta_g$ ed è stato sommato a $g_0$ per compensare l'attrito dell'aria, al fine di stimare in modo più preciso $g$. Si è riscontrato che $\Delta g$ risultava ininfluente comparato a $g_0$ calcolato nell'analisi della prima esperienza e dunque ha di poco influenzato il risultato. La variazione evidente che invece si può riscontrare numericamente è sulla compatibilità tra i valori di $g \pm \sigma_{g}$ stimati e $g_{PD}\pm \sigma_{g_{PD}}$. Ciò ``e attribuibile sia al fatto che la miglior stima di $g$ sia più vicina a quella di $g_{PD}$ sia perché $\sigma_{g}$ è aumentato a causa della propagazione dovuta alla somma di $g_{0}$ e $\Delta g$.
+In alternativa sarebbe stato teoricamente possibile usare il teorema delle varianze ma, dato che il computo del termine di covarianza risultava difficoltoso, si è optato per la propagazione degli errori.\\
+
+Si è riscontrato che $\Delta g$ risultava ininfluente comparato a $g_0$ e dunque ha di poco influenzato il risultato. La variazione evidente che invece si può riscontrare è la leggera diminuzione della compatibilità tra i valori di $g \pm \sigma_{g}$ stimati e $g_{PD}\pm \sigma_{g_{PD}}$. Ciò è attribuibile sia al fatto che la miglior stima di $g$ sia più vicina a quella di $g_{PD}$ sia perché $\sigma_{g}$ è aumentato a causa della propagazione dovuta alla somma di $g_{0}$ e $\Delta g$.\\
+Inoltre si sono confrontati tra di loro i valori di $g$ ottenuti nei diversi campioni e, come si espone nella Tabella \ref{tab:compatibilita_d}, tutti i valori di $\lambda$ calcolati risultano essere < 1, tranne l'ultimo campione, che ha compatibilità pessima.
+In base ai valori della compatibilità si è scelto di riportare come miglior stima di $g$ quella ottenuta dalla correzione di $g_0$ ottenuta nel campione analizzato a 45' con il disco di ottone:
+\begin{gather*}
+g= g_{0} + \Delta g =\SI{9.7}{m/s^{2}} + \SI{0.001}{m/s^{2}} = \SI{9.7}{m/s^{2}}\\
+\sigma_g=\SI{0.1}{m/s^{2}}
+\end{gather*}
 
 \section{Margini di miglioramento}
- Nessuno. È già perfetta così. =)
+Durante l'analisi dati e la discussione dei risultati sono stati individuati alcuni margini di miglioramento al fine di diminuire gli errori nelle misurazioni e ottenere delle migliori stime del valor vero di $g$ a Padova.
 
+\paragraph{Orizzontalità della guida}
+
+In principio all'esperienza, è stata calcolata l'orizzontalità della guida con solamente 3 misurazioni in 3 punti strategici della stessa. Maggiore precisione sul calcolo dell'orizzontalità si sarebbe potuta ottenere analizzando misure ripetute in più punti strategici della guida, tenendo conto anche della sua geometria imperfetta ipotizzata nella discussione della seconda esperienza.
+
+\paragraph{Strumentazione}
+Durante la presa dati della prima e della seconda esperienza, quando si è caricata la slitta, si è ipotizzato un episodico intervento dell'attrito radente tra la slitta e la guida. Si ipotizza che un aumento della potenza del compressore avrebbe fatto fronte a questo problema.\\
+Inoltre, durante la presa dati della prima parte il pulsante tramite il quale l'elettrocalamita è attivata non veniva tenuto premuto durante il moto della slitta, causando una forza attrattiva sulla slitta che la rallentava. Tenendo premuto il pulsante durante tutto il moto della slitta, si sarebbe ottenuto un risultato più accurato.
+
+\paragraph{Ambiente circostante}
+I repentini spostamenti d'aria dovuti ai movimenti delle persone nel laboratorio hanno influito sulla stima delle velocità della slitta e sul conseguente calcolo del fattore correttivo $\Delta g$. Si pensa che se l'esperienza si ripetesse in ambiente privo di perturbazioni d'aria si otterrebbe un risultato decisamente più accurato.
 
 \section{Conclusione}
+L'obiettivo dell'esperienza è stato pienamente raggiunto. La miglior stima è stata ottenuta dal campione analizzato con la slitta carica e la guidovia inclinata di 45'. La correttezza di questa stima è stata determinata dalla alta compatibilità con $g_{PD}$. L'accelerazione di gravità stimata nell'esperienza risulta pertanto essere 
 
-L'obiettivo dell'esperienza è stato pienamente raggiunto, abbiamo utilizzato:
-\begin{itemize}
-    \item la combo potentissima "\textbf{PRESSOCHE' COSTANTE}"
-    \item la parola \textbf{EPISODICO}
-    \item abbiamo usato per la prima volta nella vita i trattini "--" con vero significato 
-    \item ah, con una slitta di merda e un piano inclinato abbiamo stimato la gravità a Padova 
-        \begin{equation*}
-        g_0\pm\sigma_{g_0}=\left ( 9.79 \pm 0.01 \right ) m/s^{2}
-        \end{equation*}
-    \item richiesto al \textsc{NIST} di aggiungere un nuovo sottomultiplo: "\textit{'na merdina}" $\approx 10^{-5}$
-    
-\end{itemize}
+\begin{gather*}
+  g=(9.7\pm0.1) \si{m/s^{2}}\\
+\lambda_{g, g_{PD}}=0.098  
+\end{gather*}
 
 \newpage
 \section{Appendice}
 \subsection{Formulario}
 \textbf{Media, deviazione standard, deviazione standard della media}
-\begin{equation*}
-    \begin{aligned}
-        \overline{x}&=\sum\limits_{i=1}^{N} \frac{x_{i}}{N}\\
-        \sigma&=\sqrt{\frac{\sum\limits_{i=1}^{N} (x_{i}-\overline{x})}{N-1}}\\
-        \sigma_{\overline{x}}&=\frac{\sigma}{\sqrt{N}}\\
-    \end{aligned}
-\end{equation*}\\
+\begin{align*}
+   % \begin{aligned}
+        \overline{x}&=\sum\limits_{i=1}^{N} \frac{x_{i}}{N}&
+        \sigma&=\sqrt{\frac{\sum\limits_{i=1}^{N} (x_{i}-\overline{x})}{N-1}}&
+        \sigma_{\overline{x}}&=\frac{\sigma}{\sqrt{N}}
+   % \end{aligned}
+\end{align*}\\
 
-\textbf{Formula propagazione degli errori casuali}\\
+\textbf{Formula di propagazione degli errori casuali}\\
 
 Sia z=($x_1$,...;$x_N$) funzione di N variabili casuali $x_1$,...,$x_N$ e sia ${x_i^\ast}$=($x_1^\ast$,...,$x_N^{\ast}$) l'insieme di tutti i valori veri associati a tali variabili, si ha 
+
 \begin{equation*}
-    \sigma_z^{2}\approx  \sum_{i=j=1}^{N}\left ( \frac{\partial z}{\partial x_i}\Big|_{x_i^{\ast}} \right )^{2}\cdot\sigma_{x_i}^{2} +\sum_{i=1,j=1,i\neq j}^{N}\left (\frac{\partial z }{\partial x_i}\Big|_{x_i^{\ast}} \right ) \cdot \left ( \frac{\partial z}{\partial x_j} \Big|_{x_j^{\ast}} \right )\cdot cov(x_i,x_j)\label{eq:teorema_varianze}
+    \sigma_z^{2}\approx  \sum_{i=j=1}^{N}\left ( \frac{\partial z}{\partial x_i}\Big|_{x_i^{\ast}} \right )^{2}\cdot\sigma_{x_i}^{2} +\sum_{i=1,j=1,i\neq j}^{N}\left (\frac{\partial z }{\partial x_i}\Big|_{x_i^{\ast}} \right ) \cdot \left ( \frac{\partial z}{\partial x_j} \Big|_{x_j^{\ast}} \right )\cdot cov(x_i,x_j)\label{eq:prop_errori}
 \end{equation*}
 E' stato utilizzato il simbolo $\approx$ in quanto si è scelto di troncare al primo termine lo sviluppo in serie di Taylor.\\
 
@@ -683,15 +713,15 @@ E' stato utilizzato il simbolo $\approx$ in quanto si è scelto di troncare al p
 \paragraph{statistica.h} Libreria contenente alcune funzioni utilizzate nei programmi sottostanti.
 \begin{lstlisting}[language=C++, label=lst:statistica.h, caption=statistica.h]
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <vector>
 #include <cmath>
+#include <cctype>
 using namespace std;
 
-//Funzione media
+//Media
 double media(vector<double> dati, int inizio = 0, int fine = 0, string log = ""){
-    if (fine != 0){
+    if (fine != 0)    {
         double media_, counter_parz = 0, sum_parz = 0;
         for (int i = inizio; i < fine; i++){
             sum_parz = sum_parz + dati[i];
@@ -699,7 +729,7 @@ double media(vector<double> dati, int inizio = 0, int fine = 0, string log = "")
         }
         media_ = sum_parz / counter_parz;
         return media_;
-        if (log == "verbose") //log{
+        if (log == "verbose"){
             cout << "Esecuzione media da " << inizio << " elemento a " << fine << "su vettore fornito" << endl;
         }
     }
@@ -710,13 +740,13 @@ double media(vector<double> dati, int inizio = 0, int fine = 0, string log = "")
         }
         media_ = sum / dati.size();
         return media_;
-        if (log == "verbose"){
+        if (log == "verbose")        {
             cout << "Esecuzione media su tutto vettore fornito (" << media_ << ")" << endl;
         }
     }
 }
 
-//Funzione scarto quadratico medio (N a denominatore) (ex dstd_campione)
+//Scarto quadratico medio (N a denominatore)
 double squad_medio(vector<double> dati, int inizio = 0, int fine = 0, string log = ""){
     double squad;
     double media_camp;
@@ -748,13 +778,12 @@ double squad_medio(vector<double> dati, int inizio = 0, int fine = 0, string log
     return squad;
 }
 
-//Funzione deviazione standard per popolazione (N-1 a denominatore)
+//Deviazione standard per popolazione (N-1 a denominatore)
 double dstd(vector<double> dati, int inizio = 0, int fine = 0, string log = ""){
     double dstd_camp;
     double media_camp;
     double somma_camp;
     int counter = 0;
-    
     media_camp = media(dati, inizio, fine);
     if (fine != 0){
         for (int j = inizio; j < fine; j++){
@@ -779,25 +808,25 @@ double dstd(vector<double> dati, int inizio = 0, int fine = 0, string log = ""){
     return dstd_camp;
 }
 
-//Funzione deviazione standard della media
+//Deviazione standard della media
 double dstd_media(vector<double> dati, int inizio = 0, int fine = 0, string log = ""){
     double dstd_media_;
     if (fine != 0){
         dstd_media_ = dstd(dati, inizio, fine) / sqrt(fine - inizio);
         if (log == "verbose"){
-            cout << "Calcolo deviazione standard della media su parte del vettore (" << dstd_media_ << ")" << endl;
+            cout << "D standard della media su parte del vettore (" << dstd_media_ << ")" << endl;
         }
     }
     else if (fine == 0){
         dstd_media_ = dstd(dati) / sqrt(dati.size());
         if (log == "verbose"){
-            cout << "Calcolo deviazione standard della media tutto il vettore (" << dstd_media_ << ")" << endl;
+            cout << "D standard della media tutto il vettore (" << dstd_media_ << ")" << endl;
         }
     }
     return dstd_media_;
 }
 
-//Funzione che calcola la compatibilita' in uno stesso vettore specificando inizio e fine di ciascuno dei due intervalli (|a-b|/sqrt(sigma_a^2+sigma_b^2) )
+//compatibilita' in uno stesso vettore con inizio e fine di ciascuno dei due intervalli
 double comp(vector<double> dati, int inizio_primo, int fine_primo, int inizio_secondo, int fine_secondo, string log = ""){
     double compatibility;
     double m_primo, m_secondo, dstd_primo, dstd_secondo;
@@ -812,30 +841,37 @@ double comp(vector<double> dati, int inizio_primo, int fine_primo, int inizio_se
     return compatibility;
 }
 
-//Funzione che calcola la compatibilita' fra un sottoset di valori di un vettore e uno specifico valore di media e dev std sulla media forniti separatamente
+//compatibilita' fra un sottoset di valori di un vettore e uno specifico valore fornito separatamente
 double comp_2(vector<double> dati, int inizio, int fine, double media_ext, double dstd_media_ext, string log = ""){
     double compatibility;
     double media_vettore, dstd_media_vet;
     media_vettore = media(dati, inizio, fine);
     dstd_media_vet = dstd_media(dati, inizio, fine);
     compatibility = abs(media_vettore - media_ext) / sqrt(pow(dstd_media_vet, 2) + pow(dstd_media_ext, 2));
-    if (log == "verbose"){
+    if (log == "verbose")    {
         cout << "Calcolo di compatibilita' fra parte di vettore vs. media e dstd media esterne (" << compatibility << ")" << endl;
     }
     return compatibility;
 }
 
-//Funzione che calcola l'ampiezza degli intervalli per istogramma dato un vettore e il numero di intervalli
+//compatibilita' avendo due valori medi e i sigma relativi
+double comp_3(double a, double b, double sigma_a, double sigma_b){
+    return abs(a - b) / sqrt(pow(sigma_a, 2) + pow(sigma_b, 2));
+}
+
+//Ampiezza degli intervalli per istogramma dato un vettore e il numero di intervalli
 double ampiezza_int(vector<double> dati, int num_int){
     double min = 1000.0, max = 0.0;
     for (auto x : dati){
-        if (x < min)    min = x;
-        if (x > max)    max = x;
+        if (x < min)
+            min = x;
+        if (x > max)
+            max = x;
     }
     return ((max - min) / num_int);
 }
 
-//Funzione per calcolo di delta
+//Delta (chi-quadro)
 double delta(vector<double> dati_x, int inizio = 0, int fine = 0, string log = ""){
     double delta_;
     double size = 0;
@@ -865,13 +901,13 @@ double delta(vector<double> dati_x, int inizio = 0, int fine = 0, string log = "
     return delta_;
 }
 
-//Funzione per calcolo di coefficiente a di y=a+bx (intercetta)
+//Coefficiente a di y=a+bx (intercetta)
 double a_intercetta(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int fine = 0, string log = ""){
     double coeff_a;
     double delta_;
     double sum_1 = 0, sum_2 = 0, sum_3 = 0, sum_4 = 0;
     if (dati_y.size() != dati_x.size()){
-        cout << "Dimensione di vettore per dati ascisse e' diversa da dimensione vettore dati ordinate" << endl;
+        cout << "Dimensione di vettore per dati ascisse è diversa da dimensione vettore dati ordinate" << endl;
     }
     if (fine == 0){
         for (int i = 0; i < dati_x.size(); i++){
@@ -902,14 +938,14 @@ double a_intercetta(vector<double> dati_x, vector<double> dati_y, int inizio = 0
     return coeff_a;
 }
 
-//Funzione per calcolo di coefficiente b di y=a+bx (coeff. angolare)
+//Coefficiente b di y=a+bx (coeff. angolare)
 double b_angolare(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int fine = 0, string log = ""){
     double coeff_b;
     double delta_;
-    int size = 0; 
+    int size = 0;
     double sum_1 = 0, sum_2 = 0, sum_3 = 0;
     if (dati_y.size() != dati_x.size()){
-        cout << "Dimensione di vettore per dati ascisse e' diversa da dimensione vettore dati ordinate";
+        cout << "Dimensione di vettore per dati ascisse è diversa da dimensione vettore dati ordinate";
     }
     if (fine == 0){
         for (int i = 0; i < dati_x.size(); i++){
@@ -940,7 +976,7 @@ double b_angolare(vector<double> dati_x, vector<double> dati_y, int inizio = 0, 
     return coeff_b;
 }
 
-//Funzione calcolo sigma y a posteriori
+//Sigma y a posteriori
 double sigma_y_posteriori(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int fine = 0, string log = ""){
     double sigma_y;
     double a, b;
@@ -970,14 +1006,14 @@ double sigma_y_posteriori(vector<double> dati_x, vector<double> dati_y, int iniz
     return sigma_y;
 }
 
-//Funzione per calcolo di errore su coeff. a (intercetta)
+//Errore su coeff. a (intercetta)
 double sigma_a(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int fine = 0, string log = ""){
     double sigma_a_;
     double sigma_y;
     double delta_;
     double sum = 0;
     if (fine == 0){
-        sigma_y = dstd(dati_y);
+        sigma_y = sigma_y_posteriori(dati_x, dati_y);
         delta_ = delta(dati_x);
         for (auto d : dati_x){
             sum = sum + pow(d, 2);
@@ -988,7 +1024,7 @@ double sigma_a(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int
         }
     }
     else if (fine != 0){
-        sigma_y = dstd(dati_y, inizio, fine);
+        sigma_y = sigma_y_posteriori(dati_x, dati_y, inizio, fine);
         delta_ = delta(dati_x, inizio, fine);
         for (int i = inizio; i < fine; i++){
             sum = sum + pow(dati_x.at(i), 2);
@@ -1001,34 +1037,62 @@ double sigma_a(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int
     return sigma_a_;
 }
 
-//Funzione per calcolo di errore su coeff. b (coeff. angolare)
+//Errore su coeff. b (coeff. angolare)
 double sigma_b(vector<double> dati_x, vector<double> dati_y, int inizio = 0, int fine = 0, string log = ""){
-    double sigma_b_;
+    double sigma_b_p;
     double sigma_y;
     double delta_;
     int size = 0;
     if (fine == 0){
-        sigma_y = dstd(dati_y);
+        sigma_y = sigma_y_posteriori(dati_x, dati_y);
         size = dati_x.size();
         delta_ = delta(dati_x);
-        sigma_b_ = sigma_y * sqrt(size / delta_);
+        sigma_b_p = sigma_y * sqrt(size / delta_);
         if (log == "verbose"){
-            cout << "Calcolo su tutti i valori di vettori (" << sigma_b_ << ")" << endl;
+            cout << "Calcolo su tutti i valori di vettori (" << sigma_b_p << ")" << endl;
         }
     }
     else if (fine != 0){
-        sigma_y = dstd(dati_y, inizio, fine);
+        sigma_y = sigma_y_posteriori(dati_x, dati_y, inizio, fine);
         size = fine - inizio;
         delta_ = delta(dati_x, inizio, fine);
-        sigma_b_ = sigma_y * sqrt(size / delta_);
+        sigma_b_p = sigma_y * sqrt(size / delta_);
         if (log == "verbose"){
-            cout << "Calcolo su parte di valori di vettori (" << sigma_b_ << ")" << endl;
+            cout << "Calcolo su parte di valori di vettori (" << sigma_b_p << ")" << endl;
         }
     }
-    return sigma_b_;
+    return sigma_b_p;
+}
+
+//Media ponderata con errori
+double media_ponderata(vector<double> valori, vector<double> errori, int inizio = 0, int fine = 0, string log = ""){
+    double num = 0, den = 0;
+    if (fine == 0){
+        fine = valori.size();
+    }
+    if (valori.size() != errori.size()){
+        cout << "dimensione di vettore valori non è uguale a quella di vettore errori" << endl;
+        return 1;
+    }
+    for (int i = inizio; i < fine; i++){
+        num += valori[i] * pow((1 / errori[i]), 2);
+        den += pow((1 / errori[i]), 2);
+    }
+    if (log == "verbose"){
+        cout << "Calcolo di valor vero tramite vettore di valori e vettori di errori" << endl;
+    }
+    return num / den;
+}
+
+//Errore medio (media ponderata)
+double errore_v_vero(vector<double> errori){
+    double sum = 0;
+    for (auto d : errori){
+        sum += pow((1 / d), 2);
+    }
+    return (1 / sqrt(sum));
 }
 \end{lstlisting}
-
 \paragraph{media.cxx} Programma utilizzato per l'analisi della prima parte utile al calcolo di media dei tempi, deviazione standard e deviazione standard della media per ciascun campione di misure. 
 \begin{lstlisting}[language=C++, label=lst:media.cxx, caption=media.cxx]
 #include <iostream>
@@ -1079,11 +1143,6 @@ int main(){
 }
 \end{lstlisting}
 
-\paragraph{}
-\begin{lstlisting}[language=C++, label=lst:, caption=]
-
-\end{lstlisting}
-
 \paragraph{seconda\_analisi.cxx} Programma adibito al calcolo delle velocità relative alle misurazioni ottenute nella seconda parte e dei relativi errori. Fornisce inoltre l'intercetta e il coefficiente angolare e i relativi errori.
 \begin{lstlisting}[language=C++, label=lst:seconda_analisi.cxx, caption=seconda\_analisi.cxx]
 #include <iostream>
@@ -1108,25 +1167,25 @@ struct contenitore_statistico{
 };
 
 int main(){
+    cout << "ATTENZIONE< ASSICURATI DI AVER CANCELLATO IL CONTENUTO DI ../Stat2/file_errori.txt altimenti si agginguno continuamente righe" << endl;
     string angolo = "../Dati/SecondaParte/";
     string prefix;
     cout << "Inserisci prefisso file (nm_na_ nm_sa_ sm_na_): ";
     cin >> prefix;
     string extension = ".txt";
-    const int numero_intervalli = 6;
-    vector<contenitore_statistico> tempi(numero_intervalli);
-    vector<contenitore_statistico> intervalli(numero_intervalli);
-    double spazio = 0.2;
-    double dstd_spazio = 0.001 / sqrt(6);
+    const int numero_intervalli = 6;                              //quanti intervalli di spazio ci sono per ogni set
+    vector<contenitore_statistico> tempi(numero_intervalli);      //storage di tutte le info dei tempi dai file a stessa angolazione
+    vector<contenitore_statistico> intervalli(numero_intervalli); //storage intervalli di tempo per ciascuno spazio e di velocita con relativi errori
+    double spazio = 0.2;                                          //spazio fra due rilevatori
+    double dstd_spazio = 0.001 / (2 * sqrt(6));                   //sigma spazio con ptl 1mm e deltax 0.5mm
 
     for (int i = 0; i < numero_intervalli; i++){
         ifstream fin(angolo + prefix + to_string(40 + 10 * i) + "_" + to_string(60 + 10 * i) + extension);
         if (!fin){
             cout << "Errore lettura " << angolo + prefix + to_string(40 + 10 * i) + "_" + to_string(60 + 10 * i) + extension << endl;
         }
-
-        double temp;
-        vector<double> temp_time;
+        double temp;              //ausiliaria per il fin
+        vector<double> temp_time; //vettore solo per leggere dai file
         while (fin >> temp){
             temp_time.push_back(temp);
         }
@@ -1137,7 +1196,7 @@ int main(){
         tempi[i].dstd_tempo = dstd(temp_time);
         tempi[i].dstd_tempo_media = dstd_media(temp_time);
         tempi[i].media_vel = spazio / tempi[i].media_tempo;
-        tempi[i].dstd_vel =sqrt((2*(1/pow(tempi[i].media_tempo,2))*pow(dstd_spazio,2))+(0.2*0.2*(1/pow(tempi[i].media_tempo,4))*(pow(tempi[i].dstd_tempo_media,2))));
+        tempi[i].dstd_vel = sqrt((2 * (1 / pow(tempi[i].media_tempo, 2)) * pow(dstd_spazio, 2)) + (pow(0.2, 2) * (1 / pow(tempi[i].media_tempo, 4)) * (pow(tempi[i].dstd_tempo_media, 2))));
     }
     ofstream fdati("../Stat2/dati_grafico_" + prefix + ".txt");
     ofstream fchi("../Stat2/chi_" + prefix + ".txt");
@@ -1152,21 +1211,897 @@ int main(){
 
     vector<double> posizione_x;
     vector<double> vel_y;
+    vector<double> errori_perce_v;
+    vector<double> errori_v;
     cout << "DATI PER GRAFICO CON ERRORI VERTICALI" << endl;
     for (auto d : tempi){
         posizione_x.push_back(d.posizione_intermedia);
         vel_y.push_back(d.media_vel);
+        errori_v.push_back(d.dstd_vel);
+        errori_perce_v.push_back((d.dstd_vel / d.media_vel) * 100);
         cout << d.posizione_intermedia << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
         fdati << d.posizione_intermedia << "\t" << d.media_vel << "\t" << d.dstd_vel << endl;
     }
-
+    double sigma_v_posteriori;
+    sigma_v_posteriori = sigma_y_posteriori(posizione_x, vel_y);
+    cout << "err post vel, err vel" << endl;
+    for (auto d : tempi){
+        if (sigma_v_posteriori > d.dstd_vel){
+            cout << sigma_v_posteriori << "\t>\t" << d.dstd_vel << endl;
+        }
+        else if (sigma_v_posteriori < d.dstd_vel){
+            cout << sigma_v_posteriori << "\t<\t" << d.dstd_vel << endl;
+        }
+        else{
+            cout << sigma_v_posteriori << "\t=\t" << d.dstd_vel << endl;
+        }
+    }
+    cout << "IN REALTA È: " << media(errori_v) << " RISPETTO A POST:" << sigma_v_posteriori << endl;
+    cout << "Err vel e err spazio" << endl;
+    for (auto d : tempi){
+        if (d.dstd_vel > dstd_spazio){
+            cout << d.dstd_vel << "\t>\t" << dstd_spazio << endl;
+        }
+        else if (d.dstd_vel < dstd_spazio){
+            cout << d.dstd_vel << "\t<\t" << dstd_spazio << endl;
+        }
+        else{
+            cout << d.dstd_vel << "\t=\t" << dstd_spazio << endl;
+        }
+    }
+    cout << "MEDIA PERCETUALE DI ERRORI: " << media(errori_perce_v) << endl;
     cout << "ERRORI DI CHI QUADRO" << endl;
-    cout << "A_intercetta: " << a_intercetta(posizione_x, vel_y) << "SIGMA_A: " << sigma_a(posizione_x, vel_y) << endl;
-    cout << "B_Angolare: " << b_angolare(posizione_x, vel_y) << "SIGMA_B: " << sigma_b(posizione_x, vel_y) << endl;
-
-    fchi << "A_intercetta: " << a_intercetta(posizione_x, vel_y) << "SIGMA_A: " << sigma_a(posizione_x, vel_y) << endl;
-    fchi << "B_Angolare: " << b_angolare(posizione_x, vel_y) << "SIGMA_B: " << sigma_b(posizione_x, vel_y) << endl;
+    cout << "A_intercetta: " << a_intercetta(posizione_x, vel_y) << "\tSIGMA_A: " << sigma_a(posizione_x, vel_y) << endl;
+    cout << "B_Angolare: " << b_angolare(posizione_x, vel_y) << "\tSIGMA_B: " << sigma_b(posizione_x, vel_y) << endl;
+    fchi << a_intercetta(posizione_x, vel_y) << "\t" << sigma_a(posizione_x, vel_y) << endl;
+    fchi << b_angolare(posizione_x, vel_y) << "\t" << sigma_b(posizione_x, vel_y) << endl;
+    ofstream error_file;
+    error_file.open("../Stat2/file_errori.txt", std::ios_base::app);
+    error_file << b_angolare(posizione_x, vel_y) << "\t" << sigma_b(posizione_x, vel_y) << endl;
 }
 \end{lstlisting}
+
+\paragraph{media_ponderata.cxx} Programma per il calcolo del coefficiente angolare $\gamma$.
+\begin{lstlisting}[language=C++, label=lst:, caption=]
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <math.h>
+#include "statistica.h"
+using namespace std;
+
+int main(){
+    string massa;
+    cout << "Massa? (si/no): ";
+    cin >> massa;
+    if (massa == "si"){
+        string b, sigma_coeff_b;
+        ifstream fin("../Stat2/sm_chi.txt");
+        if (!fin){
+            cout << "Errore lettura";
+            return 1;
+        }
+        fin >> b >> sigma_coeff_b;
+        cout << "COEFF ATTRITO" << endl;
+        cout << b << " +/- " << sigma_coeff_b << endl;
+    }
+    else if (massa == "no"){
+        double b_, sigma_coeff_b_;
+        vector<double> b;
+        vector<double> sigma_coeff_b;
+        ifstream fin("../Stat2/nm_chi.txt");
+        if (!fin){
+            cout << "Errore lettura";
+            return 1;
+        }
+        while (fin >> b_ >> sigma_coeff_b_){
+            b.push_back(b_);
+            sigma_coeff_b.push_back(sigma_coeff_b_);
+        }
+        cout << "COEFF ATTRITO" << endl;
+        cout << media_ponderata(b, sigma_coeff_b) << " +/- ";
+        cout << errore_v_vero(sigma_coeff_b) << endl;
+    }
+    return 0;
+}
+\end{lstlisting}
+
+\paragraph{delta_g.cxx} Programma per la stima di $g_0$, $\Delta g$ e dei relativi errori.
+\begin{lstlisting}[language=C++, label=lst:, caption=]
+#include <iostream>
+#include <cmath>
+#include <fstream>
+#include <string>
+#include <vector>
+#include "statistica.h"
+using namespace std;
+double prop_g_0(double a, double sigma_a_x, double alfa, double sigma_alfa);
+double prop_delta_g(double angolo, double sigma_angolo, double v_med, double sigma_v_med, double gamma, double sigma_gamma);
+double prop_g(double a_x, double sigma_a_x, double angolo, double sigma_angolo, double lambda, double sigma_lambda, double v_x, double sigma_v_x);
+
+int main(){
+	vector<double> vel;
+	vector<double> err_vel;
+	double v_med, sigma_v_med, delta_g, sigma_delta_g, angolo, sigma_gamma, sigma_gamma_massa, gamma, gamma_massa, sigma_angolo, g_0, sigma_g_0, g, sigma_g, a_x, sigma_a_x;
+	string fwrite, fread;
+	sigma_angolo = 3.029e-05;
+	sigma_angolo = sqrt(pow(sigma_angolo, 2) + pow(M_PI / (38880 * 2 * sqrt(24)), 2));
+	double g_pd = 9.801;
+	double sigma_g_pd = 0.001;
+
+	cout << "Inserire il postfisso di lettura, stat__.txt ";
+	cin >> fread;
+	ifstream fin("../Stat/PerLatex/stat" + fread + "__con_colonna_inizio_e_fine_.txt");
+	if (!fin){
+		cout << "Errore lettura file";
+		return 1;
+	}
+	int index = 0;
+	double t;
+	while (fin >> t){
+		if (index == 4){
+			vel.push_back(t);
+			index++;
+		}
+		if (index == 5){
+			err_vel.push_back(t);
+			index = 0;
+		}
+		else
+			index++;
+	}
+	v_med = (vel[0] + vel[6]) / 2.;											 //vmedia (v[40-50]+v[100-110]/2)
+	sigma_v_med = (1 / 2) * (sqrt(pow(err_vel[0], 2) + pow(err_vel[6], 2))); //errore su v_med con propagazione
+
+	//da media ponderata
+	gamma = 6.07214e-05;
+	sigma_gamma = 1.83687e-05;
+	gamma_massa = 0.00024894;
+	sigma_gamma_massa = 1.71628e-05;
+
+	//calcolo deltag, g, compatibilita
+	if (fread == "15"){
+		angolo = 0.25;
+		a_x = 0.041252;
+		sigma_a_x = 0.00082973;
+		g_0 = a_x / sin((angolo * M_PI) / 180);
+		sigma_g_0 = prop_g_0(a_x, sigma_a_x, angolo, sigma_angolo);
+		delta_g = (gamma * v_med) / sin((angolo * M_PI) / 180);
+		sigma_delta_g = prop_delta_g(angolo, sigma_angolo, v_med, sigma_v_med, gamma, sigma_gamma);
+		g = g_0 + delta_g;
+		sigma_g = prop_g(a_x, sigma_a_x, angolo, sigma_angolo, gamma, sigma_gamma, v_med, sigma_v_med);
+		cout << "g_0:\t" << g_0 << "+/-" << sigma_g_0 << endl;
+		cout << "d_g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
+		cout << "g=g_0+delta_g:\t" << g << "+/-" << sigma_g << endl;
+		cout << "Compatibilita con g_pd di g_0:\t" << comp_3(g_0, g_pd, sigma_g_0, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g:\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
+	}
+	if (fread == "30"){
+		angolo = 0.5;
+		a_x = 0.0836481;
+		sigma_a_x = 0.00243711;
+		g_0 = a_x / sin((angolo * M_PI) / 180);
+		sigma_g_0 = prop_g_0(a_x, sigma_a_x, angolo, sigma_angolo);
+		delta_g = (gamma * v_med) / sin((angolo * M_PI) / 180);
+		sigma_delta_g = prop_delta_g(angolo, sigma_angolo, v_med, sigma_v_med, gamma, sigma_gamma);
+		g = g_0 + delta_g;
+		sigma_g = prop_g(a_x, sigma_a_x, angolo, sigma_angolo, gamma, sigma_gamma, v_med, sigma_v_med);
+		cout << "g_0:\t" << g_0 << "+/-" << sigma_g_0 << endl;
+		cout << "d_g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
+		cout << "g=g_0+delta_g:\t" << g << "+/-" << sigma_g << endl;
+		cout << "Compatibilita con g_pd di g_0:\t" << comp_3(g_0, g_pd, sigma_g_0, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g:\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
+	}
+	if (fread == "45"){
+		angolo = 0.75;
+		a_x = 0.124508;
+		sigma_a_x = 0.000809781;
+		g_0 = a_x / sin((angolo * M_PI) / 180);
+		sigma_g_0 = prop_g_0(a_x, sigma_a_x, angolo, sigma_angolo);
+		delta_g = (gamma * v_med) / sin((angolo * M_PI) / 180);
+		sigma_delta_g = prop_delta_g(angolo, sigma_angolo, v_med, sigma_v_med, gamma, sigma_gamma);
+		g = g_0 + delta_g;
+		sigma_g = prop_g(a_x, sigma_a_x, angolo, sigma_angolo, gamma, sigma_gamma, v_med, sigma_v_med);
+		cout << "g_0:\t" << g_0 << "+/-" << sigma_g_0 << endl;
+		cout << "d_g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
+		cout << "g=g_0+delta_g:\t" << g << "+/-" << sigma_g << endl;
+		cout << "Compatibilita con g_pd di g_0:\t" << comp_3(g_0, g_pd, sigma_g_0, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g:\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
+	}
+	if (fread == "d45"){
+		angolo = 0.75;
+		a_x = 0.128128;
+		sigma_a_x = 0.00139633;
+		g_0 = a_x / sin((angolo * M_PI) / 180);
+		sigma_g_0 = prop_g_0(a_x, sigma_a_x, angolo, sigma_angolo);
+		delta_g = (gamma * v_med) / sin((angolo * M_PI) / 180);
+		sigma_delta_g = prop_delta_g(angolo, sigma_angolo, v_med, sigma_v_med, gamma, sigma_gamma);
+		g = g_0 + delta_g;
+		sigma_g = prop_g(a_x, sigma_a_x, angolo, sigma_angolo, gamma, sigma_gamma, v_med, sigma_v_med);
+		cout << "g_0:\t" << g_0 << "+/-" << sigma_g_0 << endl;
+		cout << "d_g:\t" << delta_g << "+/-" << sigma_delta_g << endl;
+		cout << "g=g_0+delta_g:\t" << g << "+/-" << sigma_g << endl;
+		cout << "Compatibilita con g_pd di g_0:\t" << comp_3(g_0, g_pd, sigma_g_0, sigma_g_pd) << endl;
+		cout << "Compatibilita con g_pd di g:\t" << comp_3(g, g_pd, sigma_g, sigma_g_pd) << endl;
+	}
+	return 0;
+}
+
+double prop_delta_g(double angolo, double sigma_angolo, double v_med, double sigma_v_med, double gamma, double sigma_gamma){
+	double sig;
+	double dp_gamma, dp_v_x, dp_angolo, angolo_rad;
+	angolo_rad = angolo * M_PI / 180;
+	dp_gamma = v_med / sin(angolo_rad);
+	dp_v_x = gamma / sin(angolo_rad);
+	dp_angolo = v_med * gamma * cos(angolo_rad) / pow(sin(angolo_rad), 2);
+	sig = sqrt(pow(dp_v_x * sigma_v_med, 2) + pow(dp_angolo * sigma_angolo, 2) + pow(dp_gamma * sigma_gamma, 2));
+	return sig;
+}
+double prop_g_0(double a_x, double sigma_a_x, double angolo, double sigma_angolo){
+	double sig;
+	double angolo_rad = angolo * M_PI / 180;
+	sig = sqrt(pow((sigma_a_x / sin(angolo_rad)), 2) + pow(((a_x * cos(angolo_rad) * sigma_angolo) / (pow(sin(angolo_rad), 2))), 2));
+	return sig;
+}
+double prop_g(double a_x, double sigma_a_x, double angolo, double sigma_angolo, double lambda, double sigma_lambda, double v_x, double sigma_v_x){
+	double prop_gg;
+	double dp_a_x, dp_angolo, dp_lambda, dp_v_x, angolo_rad;
+	angolo_rad = angolo * M_PI / 180;
+	dp_a_x = 1. / sin(angolo_rad);
+	dp_lambda = v_x / sin(angolo_rad);
+	dp_v_x = lambda / sin(angolo_rad);
+	dp_angolo = (cos(angolo_rad) / pow(sin(angolo_rad), 2)) * (a_x + lambda * v_x);
+	prop_gg = sqrt(pow((dp_a_x * sigma_a_x), 2) + pow((dp_lambda * sigma_lambda), 2) + pow((dp_v_x * sigma_v_x), 2) + pow((dp_angolo * sigma_angolo), 2));
+	return prop_gg;
+}
+\end{lstlisting}
+
+\subsection{Dati Grezzi}
+\subsubsection{Prima Parte}
+\begin{figure}[h!]
+    \centering
+    \caption{Misurazioni a 15'}
+    \label{fig:dati_grezzi}
+    \subfloat[40-50]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+                0.6469\\
+                0.6422\\
+                0.6388\\
+                0.6391\\
+                0.6436\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-60]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+                1.1916\\
+                1.1918\\
+                1.1903\\
+                1.1887\\
+                1.1965\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-70]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.6834\\
+            1.6934\\
+            1.6940\\
+            1.6952\\
+            1.6966\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-80]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            2.1356\\
+            2.1406\\
+            2.1429\\
+            2.1591\\
+            2.1376\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-90]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            2.5530\\
+            2.5655\\
+            2.5638\\
+            2.5454\\
+            2.5619\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-100]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            2.9461\\
+            2.9483\\
+            2.9414\\
+            2.9406\\
+            2.9470\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-110]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            3.3078\\
+            3.3251\\
+            3.3157\\
+            3.3119\\
+            3.3177\\
+            \bottomrule
+        \end{tabular}
+    }
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Misurazioni a 30'}
+    \label{fig:dati_grezzi}
+    \subfloat[40-50]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            0.4522\\
+            0.4542\\
+            0.4532\\
+            0.4526\\
+            0.4520\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-60]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            0.8441\\
+            0.8462\\
+            0.8424\\
+            0.8416\\
+            0.8430\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-70]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.1903\\
+            1.1938\\
+            1.1917\\
+            1.1910\\
+            1.1933\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-80]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.5118\\
+            1.5148\\
+            1.5162\\
+            1.5145\\
+            1.5089\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-90]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.8041\\
+            1.8018\\
+            1.7999\\
+            1.8027\\
+            1.8012\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-100]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            2.0794\\
+            2.0806\\
+            2.0828\\
+            2.0838\\
+            2.0792\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-110]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            2.3376\\
+            2.3348\\
+            2.3379\\
+            2.3392\\
+            2.3420\\
+            \bottomrule
+        \end{tabular}
+    }
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Misurazioni a 45'}
+    \label{fig:dati_grezzi}
+    \subfloat[40-50]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            0.3695\\
+0.3694\\
+0.3692\\
+0.3704\\
+0.3700\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-60]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            0.6885\\
+            0.6901\\
+            0.6888\\
+            0.6905\\
+            0.6882\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-70]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            0.9768\\
+            0.9772\\
+            0.9754\\
+            0.9744\\
+            0.9740\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-80]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.2352\\
+            1.2358\\
+            1.2370\\
+            1.2368\\
+            1.2373\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-90]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.4805\\
+            1.4762\\
+            1.4772\\
+            1.4775\\
+            1.4774\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-100]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.7032\\
+            1.7030\\
+            1.7032\\
+            1.7028\\
+            1.7010\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-110]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.9116\\
+            1.9153\\
+            1.9106\\
+            1.9170\\
+            1.9152\\
+            \bottomrule
+        \end{tabular}
+    }
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Misurazioni a 45' con massa}
+    \label{fig:dati_grezzi}
+    \subfloat[40-50]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            0.3727\\
+            0.3728\\
+            0.3732\\
+            0.3731\\
+            0.3728\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-60]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            0.6922\\
+            0.6922\\
+            0.6912\\
+            0.6909\\
+            0.6910\\
+
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-70]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            0.9777\\
+            0.9784\\
+            0.9782\\
+            0.9788\\
+            0.9782\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-80]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.2402\\
+            1.2402\\
+            1.2392\\
+            1.2374\\
+            1.2378\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-90]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.4792\\
+            1.4773\\
+            1.4780\\
+            1.4794\\
+            1.4796\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-100]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.7022\\
+            1.7031\\
+            1.7027\\
+            1.7024\\
+            1.7023\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[40-110]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.9102\\
+            1.9110\\
+            1.9132\\
+            1.9131\\
+            1.9119\\
+            \bottomrule
+        \end{tabular}
+    }
+\end{figure}
+
+\newpage
+\subsubsection{Seconda Parte}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Misurazioni senza massa e senza alluminio}
+    \label{fig:dati_grezzi}
+    \subfloat[40-60]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.4558\\
+1.4758\\
+1.4617\\
+1.4917\\
+1.4616\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[50-70]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+1.5053\\
+1.4938\\
+1.4829\\
+1.4666\\
+1.4839\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[60-80]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.4758\\
+1.5280\\
+1.5036\\
+1.5240\\
+1.4774\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[70-90]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.5220\\
+1.4790\\
+1.4880\\
+1.4970\\
+1.5218\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[80-100]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.4902\\
+1.4926\\
+1.4908\\
+1.4960\\
+1.4996\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[90-110]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.4895\\
+1.5186\\
+1.5477\\
+1.5526\\
+1.4822\\
+            \bottomrule
+        \end{tabular}
+    }
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Misurazioni con massa e senza alluminio}
+    \label{fig:dati_grezzi}
+    \subfloat[40-60]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.8366\\
+1.8514\\
+1.9024\\
+1.8888\\
+1.9007\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[50-70]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+1.9190\\
+1.9157\\
+1.9268\\
+1.9234\\
+1.8920\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[60-80]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.9331\\
+1.9036\\
+1.9245\\
+1.9139\\
+1.8706\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[70-90]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.8776\\
+1.8425\\
+1.8881\\
+1.8662\\
+1.8490\\
+
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[80-100]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.8439\\
+1.8940\\
+1.9023\\
+1.8706\\
+1.8070\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[90-110]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            1.9974\\
+1.8682\\
+1.8768\\
+1.9044\\
+2.0682\\
+            \bottomrule
+        \end{tabular}
+    }
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \caption{Misurazioni senza massa e con alluminio}
+    \label{fig:dati_grezzi}
+    \subfloat[40-60]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            2.3101\\
+2.3080\\
+2.2704\\
+2.3078\\
+2.2822\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[50-70]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            2.3455\\
+2.3385\\
+2.3282\\
+2.3902\\
+2.3557\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[60-80]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            2.4144\\
+2.3765\\
+2.3994\\
+2.4028\\
+2.3637\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[70-90]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            2.5364\\
+2.4156\\
+2.4404\\
+2.4572\\
+2.4994\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[80-100]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            2.6152\\
+2.5586\\
+2.5077\\
+2.5896\\
+2.6486\\
+            \bottomrule
+        \end{tabular}
+    }
+    \subfloat[90-110]{
+        \begin{tabular}{c}
+            \toprule
+            \textbf{t [s]}\\
+            \midrule
+            2.6887\\
+2.7009\\
+2.6727\\
+2.7544\\
+2.5500\\
+            \bottomrule
+        \end{tabular}
+    }
+\end{figure}
 
 \end{document}*
